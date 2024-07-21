@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{env.websiteName}}</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+    <link rel="stylesheet" href="/public/tcg-card.css">
+</head>
+
+<body>
+    <section class="hero is-small is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    {{env.websiteName}}
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="hero is-large">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="columns is-mobile">
+                    <div class="column" style="transform: translateX(50%);">
+                        <div class="tcg-card" style="background-image: url(/public/cards/3.png);"></div>
+                    </div>
+                    <div class="column" style="transform: translateY(-5%); z-index: 1;">
+                        <div class="tcg-card" style="background-image: url(/public/cards/4.png);"></div>
+                    </div>
+                    <div class="column" style="transform: translateX(-50%);">
+                        <div class="tcg-card" style="background-image: url(/public/cards/4.png);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        // Apply attribute to all cards
+        document.querySelectorAll(".tcg-card").forEach((card) => {
+            card.setAttribute("data-tilt", "");
+            card.setAttribute("data-tilt-reverse", "true");
+            card.setAttribute("data-tilt-glare", "true");
+            card.setAttribute("data-tilt-max-glare", "0.5");
+            // card.setAttribute("data-tilt-full-page-listening", "true");
+            card.setAttribute("data-tilt-startX", "0");
+            card.setAttribute("data-tilt-startY", "-10");
+            card.setAttribute("data-tilt-reset-to-start", "true");
+            // card.setAttribute("data-tilt-reset", "false");
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>

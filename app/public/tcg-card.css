@@ -1,0 +1,23 @@
+:root {
+    --crop-size-x: 4.704301075268817204301075268817%;
+    --crop-size-y: 3.464870067372473532242540904716%;
+    --border-radius-x: 4.761904761904761904761904761905%;
+    --border-radius-y: 3.409090909090909090909090909091%;
+}
+
+.tcg-card {
+    aspect-ratio: 63 / 88;
+    display: inline-block;
+    height: 33vh;
+
+    /* Image */
+    background: url(/public/cards/4.png) no-repeat center center;
+    background-size: 100% 100%;
+    /* background-size: calc(100% + calc(var(--crop-size-x) * 2)) calc(100% + calc(var(--crop-size-y) * 2)); */
+
+    /* Round corners */
+    border-radius: var(--border-radius-x) / var(--border-radius-y);
+
+    /* Drop shadow */
+    box-shadow: 0 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+}

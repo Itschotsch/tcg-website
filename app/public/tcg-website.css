@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    --bulma-primary-h: 215.2deg !important;
+    --bulma-primary-s: 71% !important; /* 100% */
+    --bulma-primary-l: 62% !important; /* 41% */
+}
+
+html, body {
+    /* Serif font */
+    font-family: "Libre Baskerville", serif;
+
+}

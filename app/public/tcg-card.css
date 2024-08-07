@@ -5,10 +5,30 @@
     --border-radius-y: 3.409090909090909090909090909091%;
 }
 
+.tcg-card-collection-display {
+    display: flex;
+}
+
+.tcg-card-collection-holder {
+    display: flex;
+    flex-grow: 1;
+    padding: 2.5vw 0;
+}
+
+.tcg-card-collection {
+    /* Center horizontally */
+    position: relative;
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+
+    white-space: nowrap;
+}
+
 .tcg-card {
     aspect-ratio: 63 / 88;
     display: inline-block;
-    height: 33vh;
+    height: min(33vh, 24.5vw);
 
     /* Image */
     background: url(/public/cards/4.png) no-repeat center center;
@@ -21,3 +41,33 @@
     /* Drop shadow */
     box-shadow: 0 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
 }
+
+.tcg-card-holder {
+    position: relative;
+    display: inline-block;
+    /* width: 0; */
+}
+
+/* .tcg-card-holder.left-card {
+    transform: translateX(50%) rotateZ(-5deg);
+    margin-left: -100%;
+}
+
+.tcg-card-holder.right-card {
+    transform: translateX(-50%) rotateZ(5deg);
+    margin-right: -100%;
+} */
+
+/* .tcg-card-holder.top-card {
+    transform: translateY(-5%);
+    z-index: 1;
+} */
+
+.tcg-card-holder:hover {
+    z-index: 100 !important;
+    /* opacity: 1; */
+}
+
+/* .container {
+    border: 1px solid red;
+} */

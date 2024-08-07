@@ -7,6 +7,8 @@
     <title>{{env.websiteName}}</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+    <link rel="stylesheet" href="/public/tcg-website.css">
+    <link rel="stylesheet" href="/public/tcg-faq.css">
     <link rel="stylesheet" href="/public/tcg-card.css">
 </head>
 
@@ -20,37 +22,98 @@
             </div>
         </div>
     </section>
-    <section class="hero is-large">
+    <section class="section">
+        <div class="container has-text-centered">
+            <h1 class="title">
+                {{env.catchphrase}}
+            </h1>
+        </div>
+    </section>
+    <section class="hero is-small">
         <div class="hero-body">
-            <div class="container has-text-centered">
-                <div class="columns is-mobile">
-                    <div class="column" style="transform: translateX(50%);">
-                        <div class="tcg-card" style="background-image: url(/public/cards/3.png);"></div>
-                    </div>
-                    <div class="column" style="transform: translateY(-5%); z-index: 1;">
-                        <div class="tcg-card" style="background-image: url(/public/cards/4.png);"></div>
-                    </div>
-                    <div class="column" style="transform: translateX(-50%);">
-                        <div class="tcg-card" style="background-image: url(/public/cards/4.png);"></div>
+            <div class="container has-text-centered tcg-card-collection-display">
+                <div class="tcg-card-collection-holder">
+                    <div class="tcg-card-collection">
+                        <!-- <div class="tcg-card-holder left-card">
+                            <div class="tcg-card" style="background-image: url(/public/cards/3.png);"></div>
+                        </div>
+                        <div class="tcg-card-holder top-card">
+                            <div class="tcg-card" style="background-image: url(/public/cards/4.png);"></div>
+                        </div>
+                        <div class="tcg-card-holder right-card">
+                            <div class="tcg-card" style="background-image: url(/public/cards/4.png);"></div>
+                        </div> -->
+                        {{
+                            env.previewCardIDs.map((id, index) => {
+                                let totalCardCount = env.previewCardIDs.length;
+                                let starCardIndex = Math.floor(totalCardCount / 2);
+                                let starCardIndexOffset = index - starCardIndex;
+                                let styleZIndex = `z-index: ${starCardIndex - Math.abs(starCardIndexOffset)}`;
+                                let styleTransform = `transform: rotateZ(${starCardIndexOffset * 5}deg) translate(0, ${(Math.pow(Math.abs(starCardIndexOffset), 1.7) - starCardIndex) * 5}%)`;
+
+                                return `
+                                <div class="tcg-card-holder" style="${styleZIndex}; ${styleTransform};">
+                                    <div
+                                        class="tcg-card"
+                                        style="background-image: url(/public/cards/${id}.png);"
+                                        data-tilt
+                                        data-tilt-reverse="true"
+                                        data-tilt-glare="true"
+                                        data-tilt-max-glare="0.5"
+                                        data-tilt-startX="0"
+                                        data-tilt-startY="-10"
+                                        data-tilt-reset-to-start="true"
+                                    ></div>
+                                </div>
+                                `;
+                            }).join("");
+                        }}
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <script type="text/javascript">
-        // Apply attribute to all cards
-        document.querySelectorAll(".tcg-card").forEach((card) => {
-            card.setAttribute("data-tilt", "");
-            card.setAttribute("data-tilt-reverse", "true");
-            card.setAttribute("data-tilt-glare", "true");
-            card.setAttribute("data-tilt-max-glare", "0.5");
-            // card.setAttribute("data-tilt-full-page-listening", "true");
-            card.setAttribute("data-tilt-startX", "0");
-            card.setAttribute("data-tilt-startY", "-10");
-            card.setAttribute("data-tilt-reset-to-start", "true");
-            // card.setAttribute("data-tilt-reset", "false");
-        });
-    </script>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                {{env.faqTitle}}
+            </h1>
+            {{
+                env.faqItems.map((item) => {
+                    return `
+                    <details>
+                        <summary>
+                            ${item.question}
+                        </summary>
+                        <p>
+                            ${item.answer}
+                        </p>
+                    </details>
+                    `;
+                }).join("");
+            }}
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                {{env.rulesTitle}}
+            </h1>
+            <p>
+                {{env.rulesText}}
+            </p>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                {{env.contactTitle}}
+            </h1>
+            <p>
+                {{env.contactText}}
+            </p>
+        </div>
+    </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 

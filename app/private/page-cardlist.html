@@ -1,0 +1,43 @@
+<section class="hero is-small is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                {{env.websiteName}}
+            </h1>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container has-text-centered">
+        <h1 class="title">
+            {{env.catchphrase}}
+        </h1>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            {{env.cardlistAllTitle}}
+        </h1>
+        <!-- {{JSON.stringify(env.cardData[0]);}} -->
+        <div class="grid">
+            {{
+                env.cardData
+                // Sort by ID
+                .sort(function(a, b){ return Number(a["ID"]) - Number(b["ID"]); })
+                // Map to HTML
+                .map((card, index) => {
+                    // Aetherlab specific
+                    let id = card["ID"];
+                    let title = card["Name"];
+                    return `
+                        <div class="cell">
+                            <img src="/public/cards/${id}.png"></img>
+                            #${id} ⋅ ${title}
+                        </div>
+                    `;
+                }).join("");
+            }}
+        </div>
+    </div>
+</section>

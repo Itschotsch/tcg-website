@@ -4,10 +4,11 @@ import {Website as Preprocessor} from './preprocessor';
 export namespace Website {
 
     export function register(app: express.Express) {
-        app.get('/', (req, res) => {
-            let template: string = Preprocessor.loadTemplate("page-home");
+        app.get('/', async (req, res) => {
+            let template: string = await Preprocessor.loadTemplate("page-scaffold");
             template = Preprocessor.preprocessTemplate(template, {
                 "websiteName": "LARP-Sammelkartenspiel",
+                "pageBody": await Preprocessor.loadTemplate("page-home"),
                 "catchphrase": "Ein Sammelkartenspiel für LARP",
                 "previewCardIDs": [
                     362,

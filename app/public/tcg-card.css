@@ -13,22 +13,28 @@
     display: flex;
     flex-grow: 1;
     padding: 2.5vw 0;
+
+    /* Center horizontally */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .tcg-card-collection {
+    display: flex;
+    white-space: nowrap;
+
     /* Center horizontally */
     position: relative;
-    display: flex;
     left: 50%;
     transform: translateX(-50%);
-
-    white-space: nowrap;
 }
 
 .tcg-card {
     aspect-ratio: 63 / 88;
     display: inline-block;
     height: min(33vh, 24.5vw);
+    max-height: 25rem;
 
     /* Image */
     background: url(/public/cards/4.png) no-repeat center center;

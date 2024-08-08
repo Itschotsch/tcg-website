@@ -1,4 +1,5 @@
 import * as fs from "fs";
+import * as csv from "csv";
 import { Website as Logger } from "./logger";
 
 export namespace Website {
@@ -7,7 +8,7 @@ export namespace Website {
         maximumPreprocessingIterations: 100
     };
     
-    export function loadTemplate(name: string): string {
+    export async function loadTemplate(name: string): Promise<string> {
         return fs.readFileSync(`${__dirname}/private/${name}.html`, "utf-8");
     }
 
@@ -84,5 +85,59 @@ export namespace Website {
         };
     }    
 
+    // Aetherlab-specific
+    
+    export async function loadCSV(name: string): Promise<{ [key: string]: string }[]> {
+        // https://csv.js.org/parse/
+        let fileName = `${__dirname}/private/${name}.csv`;
+        return new Promise((resolve, reject) => { 
+            fs.createReadStream(fileName)
+            .pipe(csv.parse(
+                {
+                    columns: true,
+                    bom: true,
+
+                    // Aetherlab specific columns from Notion:
+                    // ID,Name,Kartenart,Kartentext,Element,Kosten,⚔️,🛡️,⭕️,Kartentyp,Status,Created by,Kosten Terra,Kosten Aqua,Kosten Aeris,Kosten Ignis,Kosten Magica,Kosten Ungeprägt,Flavourtext,Artwork,Art Production,Glossar,Decklist
+                    // columns: [
+                    //     "ID",
+                    //     "Layout",
+                    //     "Title",
+                    //     "Subtitle",
+                    //     "Description",
+                    //     "Artwork",
+                    //     "EntityKind",
+                    //     "EntityType",
+                    //     "OffensiveStat",
+                    //     "DefensiveStat",
+                    //     "ShieldspellStat",
+                    //     "FlavourText",
+                    //     // "CostElement",
+                    //     // "CostAmount",
+                    //     "CostTerra",
+                    //     "CostAqua",
+                    //     "CostAeris",
+                    //     "CostIgnis",
+                    //     "CostMagica",
+                    //     "CostUnshaped",
+                    //     "ElementalAmount"
+                    // ],
+                }, (err, data) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(data);
+                    }
+                }
+            ));
+        });
+    }
+
+    // export function preprocessNotionCardsCSV(cardData: { [key: string]: string }): { [key: string]: string } {
+    //     let newCardData = {};
+    //     Object.assign(newCardData, cardData);
+
+    //     return newCardData;
+    // }
 
 }

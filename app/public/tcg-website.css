@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
 
 :root {
     --bulma-primary-h: 215.2deg !important;
@@ -12,4 +13,94 @@ html, body {
     /* Serif font */
     font-family: "Libre Baskerville", serif;
 
+}
+
+hr {
+    background: url(/public/assets/divider.svg) no-repeat center center;
+    background-size: 100% 100%;
+    border: none;
+    height: 2rem;
+}
+
+.title,
+.subtitle {
+    font-family: "Pirata One", serif;
+    text-shadow: 0 0.075em 0 black;
+}
+
+.title {
+    font-size: 5rem;
+}
+
+.subtitle {
+    font-size: 2rem;
+}
+
+.title + .subtitle {
+    margin-top: 0.5rem;
+}
+
+.hero-title {
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+}
+
+h2.title {
+    font-size: 3rem;
+}
+
+.map-background {
+    background: url(/public/assets/background-map.jpg) no-repeat center top;
+    background-size: 100% auto;
+    position: relative;
+}
+.map-background:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0), var(--bulma-scheme-main) 90%);
+    width: 100%;
+    height: 33%;
+}
+
+.has-text-justified {
+    hyphens: auto;
+}
+
+.flavour-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    mix-blend-mode: screen;
+    opacity: 0.25;
+    max-height: min(100%, 10rem);
+    margin: -3rem;
+}
+
+/* Responsive behaviour for phones. */
+@media only screen and (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+    .subtitle {
+        font-size: 1.5rem;
+    }
+    .hero-title {
+        margin-top: 0;
+        margin-bottom: 4rem;
+    }
+    h2.title {
+        font-size: 2rem;
+    }
+
+    hr {
+        height: 1rem;
+    }
+    
+    .flavour-image {
+        margin-right: 0;
+    }
 }

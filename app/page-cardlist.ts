@@ -7,7 +7,7 @@ export namespace Website {
         app.get('/cards', async (req, res) => {
             let template: string = await Preprocessor.loadTemplate("page-scaffold");
             template = await Preprocessor.preprocessTemplate(template, {
-                "websiteName": "LARP-Sammelkartenspiel",
+                "websiteName": "Ark Chronika",
                 "pageBody": await Preprocessor.loadTemplate("page-cardlist"),
                 "catchphrase": "Durchstöbere die Karten",
                 "cardlistAllTitle": "Alle Karten",

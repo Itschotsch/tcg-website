@@ -1,20 +1,12 @@
-<section class="hero is-small is-primary">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title">
-                {{env.websiteName}}
-            </h1>
-        </div>
-    </div>
-</section>
-<section class="section">
-    <div class="container has-text-centered">
+<section class="section map-background">
+    <div class="container has-text-centered hero-title">
         <h1 class="title">
-            {{env.catchphrase}}
+            {{env.websiteName}}
         </h1>
+        <h3 class="subtitle">
+            {{env.catchphrase}}
+        </h3>
     </div>
-</section>
-<section class="hero is-small">
     <div class="hero-body">
         <div class="container has-text-centered tcg-card-collection-display">
             <div class="tcg-card-collection-holder">
@@ -54,11 +46,25 @@
         </div>
     </div>
 </section>
+<hr/>
+<section class="section">
+    <div class="container has-text-justified">
+        <img class="flavour-image" src="/public/assets/duel.jpg" />
+        <h2 class="title">
+            {{env.duelText}}
+        </h2>
+        <p>
+            {{env.summary}}
+        </p>
+    </div>
+</section>
+<hr/>
 <section class="section">
     <div class="container">
-        <h1 class="title">
+        <img class="flavour-image" src="/public/assets/faq.jpg" />
+        <h2 class="title">
             {{env.faqTitle}}
-        </h1>
+        </h2>
         {{
             env.faqItems.map((item) => {
                 return `
@@ -75,21 +81,25 @@
         }}
     </div>
 </section>
+<hr/>
 <section class="section">
-    <div class="container">
-        <h1 class="title">
+    <div class="container rules has-text-justified">
+        <img class="flavour-image" src="/public/assets/rules.jpg" />
+        <h2 class="title">
             {{env.rulesTitle}}
-        </h1>
+        </h2>
         <p>
             {{env.rulesText}}
         </p>
     </div>
 </section>
+<hr/>
 <section class="section">
     <div class="container">
-        <h1 class="title">
+        <img class="flavour-image" src="/public/assets/contact.jpg" />
+        <h2 class="title">
             {{env.contactTitle}}
-        </h1>
+        </h2>
         <p>
             {{env.contactText}}
         </p>

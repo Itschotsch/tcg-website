@@ -7,9 +7,9 @@ export namespace Website {
         app.get('/', async (req, res) => {
             let template: string = await Preprocessor.loadTemplate("page-scaffold");
             template = await Preprocessor.preprocessTemplate(template, {
-                "websiteName": "LARP-Sammelkartenspiel",
+                "websiteName": "Ark Chronika",
                 "pageBody": await Preprocessor.loadTemplate("page-home"),
-                "catchphrase": "Ein Sammelkartenspiel für LARP",
+                "catchphrase": "Ein LARP-Sammelkartenspiel",
                 "previewCardIDs": [
                     362,
                     402,
@@ -17,6 +17,8 @@ export namespace Website {
                     453,
                     454,
                 ],
+                "summary": "Entdecke Ark Chronika - das einzigartige LARP-Sammelkartenspiel, das deine Charaktere und epischen Momente verewigt! Tauche ein in eine Welt, in der deine liebsten LARP-Erinnerungen zu spielbaren Karten werden und erschaffe deine eigene Legende. Mit Regeln, die von beliebten Sammelkartenspielen inspiriert und speziell für LARPer angepasst wurden, bietet Ark Chronika ein authentisches und spannendes Spielerlebnis. Ob auf Veranstaltungen oder dazwischen, dieses von Aetherlab entwickelte Spiel bringt die LARP-Gemeinschaft auf eine ganz neue Art zusammen. Sammle, tausche und spiele mit Karten, die deine eigenen Abenteuer und die deiner Freunde widerspiegeln. Werde Teil dieser aufregenden Reise, bleibe über unseren Discord-Server auf dem Laufenden und gestalte mit uns die Zukunft!",
+                "duelText": "Duelliert Euch!",
                 "faqTitle": "FAQ",
                 "faqItems": [
                     {
@@ -45,7 +47,7 @@ export namespace Website {
                     },
                 ],
                 "rulesTitle": "Regeln",
-                "rulesText": "Die Regeln sind von den großen Sammelkartenspielen inspiriert und speziell auf LARP angepasst, um ein aufregendes und authentisches Spielerlebnis zu bieten.",
+                "rulesText": "Die Regeln sind von den großen Sammelkartenspielen inspiriert und speziell auf LARP angepasst, um ein aufregendes und authentisches Spielerlebnis zu bieten. Lorem ipsum odor amet, consectetuer adipiscing elit. Per sociosqu maximus neque torquent mus primis nunc. Arcu netus facilisi porttitor torquent ultrices sagittis scelerisque tempor. Quisque pretium interdum sagittis class dictumst. Luctus elementum integer cubilia tellus lorem. Facilisi per est lectus nam dis. Lacus phasellus dictum sociosqu dolor nibh; non penatibus.<br/>Dignissim sapien auctor mauris; molestie cras mattis. Ultrices sit lacus auctor elementum leo. Ipsum tempus proin torquent proin placerat massa habitant ut cursus. Volutpat velit faucibus cursus habitant cubilia suspendisse sed fringilla. Dictumst inceptos ultricies est proin mus erat lectus. Fringilla neque diam sollicitudin diam, vulputate et. Euismod adipiscing faucibus ridiculus accumsan massa mi porttitor sagittis consequat.",
                 "contactTitle": "Kontakt",
                 "contactText": "Du kannst uns jederzeit mit dem Discord-Server in unserem <a href=\"https://discord.gg/BVQrSYF5jg\">Discord-Server</a> besprechen.",
                 "footerText": `© ${new Date().getFullYear()} Aetherlab`,

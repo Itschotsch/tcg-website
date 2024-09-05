@@ -9,6 +9,7 @@ RUN npm install
 # CMD ["node", "main.js"]
 COPY --chown=node:node . .
 RUN npm install -g nodemon
+RUN npm install -g ts-node
 USER node
 # ENTRYPOINT ["nodemon", "app/main.js"]
 CMD ["npm", "run", "dev"]

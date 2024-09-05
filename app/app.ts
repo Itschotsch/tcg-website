@@ -6,6 +6,7 @@ export namespace Website {
 
     const app = express();
     const port = 3000;
+    const ip = "0.0.0.0";
 
     app.use("/public", express.static(__dirname + '/public'));
 
@@ -13,7 +14,7 @@ export namespace Website {
 
     PageCardlist.register(app);
 
-    app.listen(port, () => {
+    app.listen(port, ip, () => {
         return console.log(`Listening at http://localhost:${port}`);
     });
 

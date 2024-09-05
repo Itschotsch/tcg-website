@@ -12,7 +12,7 @@ export namespace Website {
         return fs.readFileSync(`${__dirname}/private/${name}.html`, "utf-8");
     }
 
-    export function preprocessTemplate(template: string, env: { [key: string]: any }): string {
+    export async function preprocessTemplate(template: string, env: { [key: string]: any }): Promise<string> {
         let preprocessingIterations: number = 0;
         while (true) {
             try {
@@ -25,10 +25,13 @@ export namespace Website {
                 if (!indices) {
                     break;
                 }
-                const script = template.substring(indices.scriptStartIndex, indices.scriptEndIndex);
+                const script = template.substring(indices.scriptStartIndex, indices.scriptEndIndex).trim();
                 let evaluated: any;
                 try {
-                    evaluated = eval(script);
+                    // evaluated = eval(script);
+                    // evaluated = eval(`(async () => {${script}})()`);
+                    // evaluated = await Object.getPrototypeOf(async function() {}).constructor(`return (async function(env) { return ${script}; })(env);`)(env);
+                    evaluated = await (new Function("env", `return (async function(env) { return ${script}; })(env);`))(env);
                 } catch (error: any) {
                     Logger.err(`An error occurred during preprocessing: ${script}`, error);
                     evaluated = "";
@@ -130,6 +133,19 @@ export namespace Website {
                     }
                 }
             ));
+        });
+    }
+
+    export async function loadCommasSeparatedList(name: string): Promise<string[]> {
+        let fileName = `${__dirname}/private/${name}.txt`;
+        return new Promise((resolve, reject) => { 
+            fs.readFile(fileName, "utf-8", (err, data) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(data.split(",").map(x => x.trim()).filter(x => x.length > 0));
+                }
+            });
         });
     }
 

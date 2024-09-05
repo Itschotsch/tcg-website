@@ -25,22 +25,27 @@
                             let starCardIndex = Math.floor(totalCardCount / 2);
                             let starCardIndexOffset = index - starCardIndex;
                             let styleZIndex = `z-index: ${starCardIndex - Math.abs(starCardIndexOffset)}`;
-                            let styleTransform = `transform: rotateZ(${starCardIndexOffset * 5}deg) translate(0, ${(Math.pow(Math.abs(starCardIndexOffset), 1.7) - starCardIndex) * 5}%)`;
+                            let styleTransform = `transform: scale(1) rotateZ(${starCardIndexOffset * 5}deg) translate(0, ${(Math.pow(Math.abs(starCardIndexOffset), 1.7) - starCardIndex) * 5}%)`;
 
                             return `
-                            <div class="tcg-card-holder" style="${styleZIndex}; ${styleTransform};">
                                 <div
-                                    class="tcg-card"
-                                    style="background-image: url(/public/cards/${id}.png);"
-                                    data-tilt
-                                    data-tilt-reverse="true"
-                                    data-tilt-glare="true"
-                                    data-tilt-max-glare="0.5"
-                                    data-tilt-startX="0"
-                                    data-tilt-startY="-10"
-                                    data-tilt-reset-to-start="true"
-                                ></div>
-                            </div>
+                                    id="tcg-card-holder-${id}"
+                                    class="tcg-card-holder"
+                                    style="${styleZIndex}; ${styleTransform};"
+                                >
+                                    <div
+                                        id="tcg-card-${id}"
+                                        class="tcg-card tcg-card-presented"
+                                        style="background-image: url(/public/cards/${id}.png);"
+                                        data-tilt data-tilt-reverse="true"
+                                        data-tilt-glare="true"
+                                        data-tilt-max-glare="0.5"
+                                        data-tilt-startX="0"
+                                        data-tilt-startY="-10"
+                                        data-tilt-reset-to-start="true"
+                                        onclick="openCard('${id}')"
+                                    ></div>
+                                </div>
                             `;
                         }).join("");
                     }}
@@ -57,14 +62,14 @@
         {{
             env.faqItems.map((item) => {
                 return `
-                <details>
-                    <summary>
-                        ${item.question}
-                    </summary>
-                    <p>
-                        ${item.answer}
-                    </p>
-                </details>
+                    <details>
+                        <summary>
+                            ${item.question}
+                        </summary>
+                        <p>
+                            ${item.answer}
+                        </p>
+                    </details>
                 `;
             }).join("");
         }}
@@ -90,4 +95,21 @@
         </p>
     </div>
 </section>
+<div id="tcg-card-focus" onclick="closeCard()">
+    <div
+        class="tcg-card-holder tcg-card-focus-holder"
+    >
+        <div
+            class="tcg-card tcg-card-focus-card"
+            data-tilt data-tilt-reverse="true"
+            data-tilt-glare="true"
+            data-tilt-max-glare="0.5"
+            data-tilt-startX="0"
+            data-tilt-startY="0"
+            data-tilt-reset-to-start="true"
+            onclick="openCard('${id}')"
+        ></div>
+    </div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{ await env.loadTemplate("page-cardfocus"); }}

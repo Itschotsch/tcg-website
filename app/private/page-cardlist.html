@@ -32,7 +32,7 @@
                     let title = card["Name"];
                     return `
                         <div class="cell">
-                            <img src="/public/cards/${id}.png"></img>
+                            <img class="tcg-card tcg-cardlist-card-image" src="/public/cards/${id}.png" onclick="openCard(${id})"></img>
                             #${id} ⋅ ${title}
                         </div>
                     `;
@@ -41,3 +41,21 @@
         </div>
     </div>
 </section>
+<div id="tcg-card-focus" onclick="closeCard()">
+    <div
+        class="tcg-card-holder tcg-card-focus-holder"
+    >
+        <div
+            class="tcg-card tcg-card-focus-card"
+            data-tilt data-tilt-reverse="true"
+            data-tilt-glare="true"
+            data-tilt-max-glare="0.5"
+            data-tilt-startX="0"
+            data-tilt-startY="0"
+            data-tilt-reset-to-start="true"
+            onclick="openCard('${id}')"
+        ></div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{ await env.loadTemplate("page-cardfocus"); }}

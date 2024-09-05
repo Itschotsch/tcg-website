@@ -3,6 +3,8 @@
     --crop-size-y: 3.464870067372473532242540904716%;
     --border-radius-x: 4.761904761904761904761904761905%;
     --border-radius-y: 3.409090909090909090909090909091%;
+    --card-aspect-ratio: calc(63.0 / 88.0);
+    --holder-padding: 5vw;
 }
 
 .tcg-card-collection-display {
@@ -30,28 +32,52 @@
     transform: translateX(-50%);
 }
 
+/* Responsive behaviour for phones. */
+@media only screen and (max-width: 768px) {
+    .tcg-card-holder:first-of-type,
+    .tcg-card-holder:last-of-type {
+        display: none;
+    }
+
+    #tcg-card-focus .tcg-card-holder {
+        display: inherit;
+    }
+
+    .tcg-card-presented {
+        height: 40vw !important;
+    }
+}
+
 .tcg-card {
     aspect-ratio: 63 / 88;
-    display: inline-block;
-    height: min(33vh, 24.5vw);
-    max-height: 25rem;
-
-    /* Image */
-    background: url(/public/cards/4.png) no-repeat center center;
-    background-size: 100% 100%;
-    /* background-size: calc(100% + calc(var(--crop-size-x) * 2)) calc(100% + calc(var(--crop-size-y) * 2)); */
 
     /* Round corners */
     border-radius: var(--border-radius-x) / var(--border-radius-y);
 
     /* Drop shadow */
     box-shadow: 0 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+
+    /* Image */
+    background: url(/public/cards/somecard.png) no-repeat center center;
+    background-size: 100% 100%;
+    /* background-size: calc(100% + calc(var(--crop-size-x) * 2)) calc(100% + calc(var(--crop-size-y) * 2)); */
+
+    cursor: pointer;
+}
+
+.tcg-card-presented {
+    display: inline-block;
+    height: min(33vh, 24.5vw);
+    max-height: 25rem;
 }
 
 .tcg-card-holder {
     position: relative;
     display: inline-block;
     /* width: 0; */
+
+    /* Animate transform */
+    transition: all 0.25s ease;
 }
 
 /* .tcg-card-holder.left-card {
@@ -74,6 +100,60 @@
     /* opacity: 1; */
 }
 
+/* .tcg-card-holder-fullsize {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: none !important;
+    z-index: 1000 !important;
+} */
+
 /* .container {
     border: 1px solid red;
 } */
+
+#tcg-card-focus {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    opacity: 0;
+}
+
+.tcg-card-focus-holder {
+    display: flex;
+    padding: var(--holder-padding);
+    width: inherit;
+    /* margin-left: auto;
+    margin-right: auto;
+    transform: translateX(-50%); */
+}
+
+.tcg-card-focus-card {
+    margin: auto;
+
+    width: 100%;
+    height: 100%;
+    aspect-ratio: calc(63.0 / 88.0);
+    max-width: calc(((100vh - 2 * var(--holder-padding)) * 63.0) / (88.0));
+    max-height: calc(((100vw - 2 * var(--holder-padding)) * 88.0) / (63.0));
+}
+
+#tcg-card-focus .tcg-card {
+    z-index: 1;
+}
+
+.js-tilt-glare {
+    z-index: 2;
+}
+
+.js-tilt-glare-inner {
+    width: max(100vw, 100vh) !important;
+    height: max(100vw, 100vh) !important;
+}

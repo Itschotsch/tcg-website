@@ -1,0 +1,52 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" integrity="sha512-aNMyYYxdIxIaot0Y1/PLuEu3eipGCmsEUBrUq+7aVyPGMFH8z0eTP0tkqAvv34fzN6z+201d3T8HPb1svWSKHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    function openCard(id) {
+        if (document.querySelector("#tcg-card-focus").hasAttribute("transitioning")) {
+            return;
+        }
+
+        // Set background:
+        document.querySelector(".tcg-card-focus-card").style.backgroundImage = `url(/public/cards/${id}.png)`;
+
+        // Show tcg-card-focus:
+        let timeline = anime.timeline();
+        timeline.add({
+            targets: "#tcg-card-focus",
+            opacity: 1,
+            duration: 250,
+            easing: 'easeInOutQuad',
+            begin: function() {
+                let element = document.querySelector("#tcg-card-focus");
+                element.setAttribute("transitioning", "true");
+                element.style.display = "flex";
+            },
+            complete: function() {
+                let element = document.querySelector("#tcg-card-focus");
+                element.removeAttribute("transitioning");
+            }
+        });
+    }
+
+    function closeCard() {
+        if (document.querySelector("#tcg-card-focus").hasAttribute("transitioning")) {
+            return;
+        }
+
+        let timeline = anime.timeline();
+        timeline.add({
+            targets: "#tcg-card-focus",
+            opacity: 0,
+            duration: 250,
+            easing: 'easeInOutQuad',
+            begin: function() {
+                let element = document.querySelector("#tcg-card-focus");
+                element.setAttribute("transitioning", "true");
+            },
+            complete: function() {
+                let element = document.querySelector("#tcg-card-focus");
+                element.removeAttribute("transitioning");
+                element.style.display = "none";
+            }
+        });
+    }
+</script>

@@ -6,7 +6,7 @@ export namespace Website {
     export function register(app: express.Express) {
         app.get('/', async (req, res) => {
             let template: string = await Preprocessor.loadTemplate("page-scaffold");
-            template = Preprocessor.preprocessTemplate(template, {
+            template = await Preprocessor.preprocessTemplate(template, {
                 "websiteName": "LARP-Sammelkartenspiel",
                 "pageBody": await Preprocessor.loadTemplate("page-home"),
                 "catchphrase": "Ein Sammelkartenspiel für LARP",
@@ -39,12 +39,17 @@ export namespace Website {
                         "question": "Wie kann ich auf dem Laufenden bleiben?",
                         "answer": "Tritt unserem <a href=\"https://discord.gg/BVQrSYF5jg\">Discord-Server</a> bei, um keine News zu verpassen!",
                     },
+                    {
+                        "question": "Kann ich irgendwo sehen, welche Karten es gibt?",
+                        "answer": "Ja, es gibt eine <a href=\"/cards\">Liste aller Karten</a>.",
+                    },
                 ],
                 "rulesTitle": "Regeln",
                 "rulesText": "Die Regeln sind von den großen Sammelkartenspielen inspiriert und speziell auf LARP angepasst, um ein aufregendes und authentisches Spielerlebnis zu bieten.",
                 "contactTitle": "Kontakt",
                 "contactText": "Du kannst uns jederzeit mit dem Discord-Server in unserem <a href=\"https://discord.gg/BVQrSYF5jg\">Discord-Server</a> besprechen.",
                 "footerText": `© ${new Date().getFullYear()} Aetherlab`,
+                "loadTemplate": Preprocessor.loadTemplate,
             });
             res.send(template);
         });

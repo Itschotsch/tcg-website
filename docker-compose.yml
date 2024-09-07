@@ -1,0 +1,20 @@
+version: '2.2'
+
+services:
+  larp-tcg:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: larp-tcg
+    restart: unless-stopped
+    ports:
+      - '50016:3000'
+    volumes:
+      - .:/app:rw
+    networks:
+      - nginx_network
+
+networks:
+  nginx_network:
+    driver: bridge
+

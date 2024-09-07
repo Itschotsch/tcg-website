@@ -47,12 +47,20 @@ hr {
 
 h2.title {
     font-size: 3rem;
+
+    /* Underline */
+    /* border-width: 0 0 0.3rem 0; */
+    /* border-style: solid; */
+    /* border-color: #ffe55e; */
+    /* border-image: linear-gradient(to right, #ffe55e, rgba(0, 0, 0, 0)) 0 1 100% 0; */
+    /* margin-right: 10rem; */
 }
 
 .map-background {
     background: url(/public/assets/background-map.jpg) no-repeat center top;
-    background-size: 100% auto;
+    background-size: cover;
     position: relative;
+    padding-bottom: 10rem;
 }
 .map-background:after {
     content: "";
@@ -98,6 +106,11 @@ h2.title {
 
     hr {
         height: 1rem;
+        margin: 3rem;
+    }
+
+    .map-background {
+        padding-bottom: 5rem;
     }
     
     .flavour-image {

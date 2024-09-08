@@ -1,21 +1,20 @@
 import express from 'express';
-import {Website as PageHome} from './page-home';
-import {Website as PageCardlist} from './page-cardlist';
+import { Website as PageHome } from './page-home';
+import { Website as PageCardlist } from './page-cardlist';
 
-export namespace Website {
+const app = express();
+const port = process.env.PORT || 3000;
 
-    const app = express();
-    const port = 3000;
-    const ip = "0.0.0.0";
+app.use("/public", express.static(__dirname + '/../app/public'));
 
-    app.use("/public", express.static(__dirname + '/../app/public'));
+PageHome.register(app);
+PageCardlist.register(app);
 
-    PageHome.register(app);
-
-    PageCardlist.register(app);
-
-    app.listen(port, ip, () => {
-        return console.log(`Listening at http://localhost:${port}`);
-    });
-
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port, () => {
+    console.log(`Listening at http://localhost:${port}`);
+  });
 }
+
+export default app;

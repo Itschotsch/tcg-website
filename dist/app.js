@@ -12,7 +12,7 @@ var Website;
     const app = (0, express_1.default)();
     const port = 3000;
     const ip = "0.0.0.0";
-    app.use("/public", express_1.default.static(__dirname + '/public'));
+    app.use("/public", express_1.default.static(__dirname + '/../app/public'));
     page_home_1.Website.register(app);
     page_cardlist_1.Website.register(app);
     app.listen(port, ip, () => {

@@ -31,7 +31,6 @@ var Website;
     Website.register = register;
     function maskCardData(cardData, cardIDs) {
         let newCardData = [];
-        console.log(cardIDs);
         for (let card of cardData) {
             if (cardIDs.includes(card.ID)) {
                 newCardData.push(card);

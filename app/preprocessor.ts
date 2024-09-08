@@ -9,7 +9,7 @@ export namespace Website {
     };
     
     export async function loadTemplate(name: string): Promise<string> {
-        return fs.readFileSync(`${__dirname}/private/${name}.html`, "utf-8");
+        return fs.readFileSync(`${__dirname}/../app/private/${name}.html`, "utf-8");
     }
 
     export async function preprocessTemplate(template: string, env: { [key: string]: any }): Promise<string> {
@@ -92,7 +92,7 @@ export namespace Website {
     
     export async function loadCSV(name: string): Promise<{ [key: string]: string }[]> {
         // https://csv.js.org/parse/
-        let fileName = `${__dirname}/private/${name}.csv`;
+        let fileName = `${__dirname}/../app/private/${name}.csv`;
         return new Promise((resolve, reject) => { 
             fs.createReadStream(fileName)
             .pipe(csv.parse(
@@ -137,7 +137,7 @@ export namespace Website {
     }
 
     export async function loadCommasSeparatedList(name: string): Promise<string[]> {
-        let fileName = `${__dirname}/private/${name}.txt`;
+        let fileName = `${__dirname}/../app/private/${name}.txt`;
         return new Promise((resolve, reject) => { 
             fs.readFile(fileName, "utf-8", (err, data) => {
                 if (err) {

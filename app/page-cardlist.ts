@@ -24,7 +24,6 @@ export namespace Website {
 
     function maskCardData(cardData: { [key: string]: string }[], cardIDs: string[]): { [key: string]: string }[] {
         let newCardData: { [key: string]: string }[] = [];
-        console.log(cardIDs);
         for (let card of cardData) {
             if (cardIDs.includes(card.ID)) {
                 newCardData.push(card);

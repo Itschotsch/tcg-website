@@ -8,7 +8,7 @@ export namespace Website {
     const port = 3000;
     const ip = "0.0.0.0";
 
-    app.use("/public", express.static(__dirname + '/public'));
+    app.use("/public", express.static(__dirname + '/../app/public'));
 
     PageHome.register(app);
 

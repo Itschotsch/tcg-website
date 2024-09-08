@@ -43,7 +43,7 @@ var Website;
     };
     function loadTemplate(name) {
         return __awaiter(this, void 0, void 0, function* () {
-            return fs.readFileSync(`${__dirname}/private/${name}.html`, "utf-8");
+            return fs.readFileSync(`${__dirname}/../app/private/${name}.html`, "utf-8");
         });
     }
     Website.loadTemplate = loadTemplate;
@@ -124,7 +124,7 @@ var Website;
     function loadCSV(name) {
         return __awaiter(this, void 0, void 0, function* () {
             // https://csv.js.org/parse/
-            let fileName = `${__dirname}/private/${name}.csv`;
+            let fileName = `${__dirname}/../app/private/${name}.csv`;
             return new Promise((resolve, reject) => {
                 fs.createReadStream(fileName)
                     .pipe(csv.parse({
@@ -169,7 +169,7 @@ var Website;
     Website.loadCSV = loadCSV;
     function loadCommasSeparatedList(name) {
         return __awaiter(this, void 0, void 0, function* () {
-            let fileName = `${__dirname}/private/${name}.txt`;
+            let fileName = `${__dirname}/../app/private/${name}.txt`;
             return new Promise((resolve, reject) => {
                 fs.readFile(fileName, "utf-8", (err, data) => {
                     if (err) {

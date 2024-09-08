@@ -16,12 +16,19 @@ var Website;
     function register(app) {
         app.get('/cards', (req, res) => __awaiter(this, void 0, void 0, function* () {
             let template = yield preprocessor_1.Website.loadTemplate("page-scaffold");
+            let cardlistName = (req.query.cardlist || "playtest").toString();
+            let cardlistFile = "cardlist-" + cardlistName;
+            // Check whether cardlist actually exists
+            if (!(yield preprocessor_1.Website.commasSeparatedListExists(cardlistFile))) {
+                res.status(404).send("Cardlist not found.");
+                return;
+            }
             template = yield preprocessor_1.Website.preprocessTemplate(template, {
                 "websiteName": "Ark Chronika",
                 "pageBody": yield preprocessor_1.Website.loadTemplate("page-cardlist"),
                 "catchphrase": "Durchstöbere die Karten",
-                "cardlistAllTitle": "Alle Karten",
-                "cardData": maskCardData(yield preprocessor_1.Website.loadCSV("Alle Karten 70ddd0aaafb74f56b205e643b0901290_all"), (yield preprocessor_1.Website.loadCommasSeparatedList("cardlist-whitelist")).sort()),
+                "cardlistName": cardlistName.charAt(0).toUpperCase() + cardlistName.slice(1),
+                "cardData": maskCardData(yield preprocessor_1.Website.loadCSV("Alle Karten 70ddd0aaafb74f56b205e643b0901290_all"), (yield preprocessor_1.Website.loadCommasSeparatedList(cardlistFile)).sort()),
                 "footerText": `© ${new Date().getFullYear()} Aetherlab`,
                 "loadTemplate": preprocessor_1.Website.loadTemplate,
             });

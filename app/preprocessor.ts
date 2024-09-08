@@ -149,6 +149,19 @@ export namespace Website {
         });
     }
 
+    export async function commasSeparatedListExists(name: string): Promise<boolean> {
+        let fileName = `${__dirname}/../app/private/${name}.txt`;
+        return new Promise((resolve, reject) => { 
+            fs.access(fileName, fs.constants.F_OK, (err) => {
+                if (err) {
+                    resolve(false);
+                } else {
+                    resolve(true);
+                }
+            });
+        });
+    }
+
     // export function preprocessNotionCardsCSV(cardData: { [key: string]: string }): { [key: string]: string } {
     //     let newCardData = {};
     //     Object.assign(newCardData, cardData);

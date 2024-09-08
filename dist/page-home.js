@@ -53,7 +53,7 @@ var Website;
                     },
                     {
                         "question": "Kann ich irgendwo sehen, welche Karten es gibt?",
-                        "answer": "Ja, es gibt eine <a href=\"/cards\">Liste aller Karten</a>.",
+                        "answer": "Ja, es gibt eine <a href=\"/cards\">Liste der Karten im Playtest</a>.",
                     },
                 ],
                 "rulesTitle": "Regeln",

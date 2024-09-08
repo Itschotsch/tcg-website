@@ -6,7 +6,7 @@
     </div>
     <div class="container">
         <h2 class="title">
-            {{env.cardlistAllTitle}}
+            {{env.cardlistName}}
         </h2>
         <!-- {{JSON.stringify(env.cardData[0]);}} -->
         <div class="grid">
@@ -21,7 +21,7 @@
                     let title = card["Name"];
                     return `
                         <div class="cell">
-                            <img class="tcg-card tcg-cardlist-card-image" src="/public/cards/${id}.png" onclick="openCard(${id})"></img>
+                            <div class="tcg-card tcg-cardlist-card-image" style="background-image: url(/public/cards/${id}.png);" onclick="openCard(${id})"></div>
                             #${id} ⋅ ${title}
                         </div>
                     `;

@@ -60,7 +60,7 @@
     /* Image */
     background: url(/public/cards/somecard.png) no-repeat center center;
     background-size: 100% 100%;
-    /* background-size: calc(100% + calc(var(--crop-size-x) * 2)) calc(100% + calc(var(--crop-size-y) * 2)); */
+    background-size: calc(100% + calc(var(--crop-size-x) * 2)) calc(100% + calc(var(--crop-size-y) * 2));
 
     cursor: pointer;
 }

@@ -183,6 +183,22 @@ var Website;
         });
     }
     Website.loadCommasSeparatedList = loadCommasSeparatedList;
+    function commasSeparatedListExists(name) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let fileName = `${__dirname}/../app/private/${name}.txt`;
+            return new Promise((resolve, reject) => {
+                fs.access(fileName, fs.constants.F_OK, (err) => {
+                    if (err) {
+                        resolve(false);
+                    }
+                    else {
+                        resolve(true);
+                    }
+                });
+            });
+        });
+    }
+    Website.commasSeparatedListExists = commasSeparatedListExists;
     // export function preprocessNotionCardsCSV(cardData: { [key: string]: string }): { [key: string]: string } {
     //     let newCardData = {};
     //     Object.assign(newCardData, cardData);

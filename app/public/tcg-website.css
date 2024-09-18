@@ -7,12 +7,12 @@
     --bulma-primary-h: 215.2deg !important;
     --bulma-primary-s: 71% !important; /* 100% */
     --bulma-primary-l: 62% !important; /* 41% */
+
+    --bulma-title-color: ebecf0;
 }
 
 html, body {
-    /* Serif font */
     font-family: "Libre Baskerville", serif;
-
 }
 
 hr {

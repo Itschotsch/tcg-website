@@ -4,7 +4,7 @@
   "description": "Aetherlab's LARP TCG Website",
   "main": "app/app.ts",
   "scripts": {
-    "dev": "npx nodemon app app/app.ts",
+    "dev": "npx nodemon app/app.ts",
     "start": "npx nodemon app/app.js",
     "build": "npm run build:production",
     "build:production": "echo 'PROD' && rimraf dist && tsc",

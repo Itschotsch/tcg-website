@@ -1,35 +1,38 @@
 <section class="section"> <!-- map-background -->
-    <div class="background-flavour-image fadeout-bottom" style="background-image: url(/public/assets/summary-background.jpg);"></div>
+    <div class="background-flavour-image fadeout-bottom"
+        style="background-image: url(/public/assets/summary-background.webp); background-position: center top;"></div>
     <div class="hero-body">
         <div class="container has-text-centered tcg-card-collection-display">
             <div class="tcg-card-collection-holder">
                 <div class="tcg-card-collection">
                     {{
-                        env.previewCardIDs.map((id, index) => {
-                            let totalCardCount = env.previewCardIDs.length;
-                            let starCardIndex = Math.floor(totalCardCount / 2);
-                            let starCardIndexOffset = index - starCardIndex;
-                            let styleZIndex = `z-index: ${starCardIndex - Math.abs(starCardIndexOffset)}`;
-                            let styleTransform = `transform: scale(1) rotateZ(${starCardIndexOffset * 5}deg) translate(0, ${(Math.pow(Math.abs(starCardIndexOffset), 1.7) - starCardIndex) * 5}%)`;
-                            let hideOnMobile = (index === 0 || index === totalCardCount - 1) ? 'is-hidden-mobile' : '';
+                    env.previewCardIDs.map((id, index) => {
+                    let totalCardCount = env.previewCardIDs.length;
+                    let starCardIndex = Math.floor(totalCardCount / 2);
+                    let starCardIndexOffset = index - starCardIndex;
+                    let styleZIndex = `z-index: ${starCardIndex - Math.abs(starCardIndexOffset)}`;
+                    let styleTransform = `transform: scale(1) rotateZ(${starCardIndexOffset * 5}deg) translate(0,
+                    ${(Math.pow(Math.abs(starCardIndexOffset), 1.7) - starCardIndex) * 5}%)`;
+                    let hideOnMobile = (index === 0 || index === totalCardCount - 1) ? 'is-hidden-mobile' : '';
 
-                            return `
-                                <div id="tcg-card-holder-${id}" class="tcg-card-holder ${hideOnMobile}" style="${styleZIndex}; ${styleTransform};">
-                                    <div id="tcg-card-${id}" class="tcg-card tcg-card-presented tcg-card-presented-summary"
-                                        style="background-image: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/${id}.jpg);"
-                                        data-tilt data-tilt-reverse="true" data-tilt-glare="true" data-tilt-max-glare="0.5"
-                                        data-tilt-startX="0" data-tilt-startY="-10" data-tilt-reset-to-start="true"
-                                        onclick="openCard('${id}')">
-                                    </div>
-                                </div>
-                            `;
-                        }).join("");
+                    return `
+                    <div id="tcg-card-holder-${id}" class="tcg-card-holder ${hideOnMobile}"
+                        style="${styleZIndex}; ${styleTransform};">
+                        <div id="tcg-card-${id}" class="tcg-card tcg-card-presented tcg-card-presented-summary"
+                            style="background-image: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/${id}.jpg);"
+                            data-tilt data-tilt-reverse="true" data-tilt-glare="true" data-tilt-max-glare="0.5"
+                            data-tilt-startX="0" data-tilt-startY="-10" data-tilt-reset-to-start="true"
+                            onclick="openCard('${id}')">
+                        </div>
+                    </div>
+                    `;
+                    }).join("");
                     }}
                 </div>
             </div>
         </div>
     </div>
-    <div class="container has-text-centered hero-title">
+    <div class="container has-text-centered hero-title safe-borders">
         <h1 class="title">
             {{env.websiteName}}
         </h1>
@@ -37,33 +40,32 @@
             {{env.catchphrase}}
         </h3>
     </div>
-    <div class="container has-text-centered is-max-mobile">
-        <!-- <img class="flavour-image" src="/public/assets/cards.jpg" /> -->
+    <div class="container has-text-centered is-max-mobile safe-borders">
         <p>
             {{env.summaryText}}
         </p>
         <div class="buttons is-centered">
             {{
-                env.summaryButtons.map((button) => {
-                    return `
-                        <a class="button" href="${button.url}" target="${button.target}">
-                            <span class="icon">
-                                <img src="${button.icon}" alt="${button.text}" />
-                            </span>
-                            <span>${button.text}</span>
-                        </a>
-                    `;
-                }).join("");
+            env.summaryButtons.map((button) => {
+            return `
+            <a class="button" href="${button.url}" target="${button.target}">
+                <span class="icon">
+                    <img src="${button.icon}" alt="${button.text}" />
+                </span>
+                <span>${button.text}</span>
+            </a>
+            `;
+            }).join("");
             }}
         </div>
     </div>
 </section>
 <hr />
 <section class="section">
-    <div class="container has-text-centered is-max-desktop">
-        <div class="background-flavour-image shifted-up"
-            style="background-image: url(/public/assets/worldbuilding-background.webp); background-size: contain;">
-        </div>
+    <div class="background-flavour-image softextended fadeout-top-bottom transparent"
+        style="background-image: url(/public/assets/worldbuilding-background.webp);">
+    </div>
+    <div class="container has-text-centered is-max-desktop safe-borders">
         <h2 class="title">
             {{env.worldbuildingTitle}}
         </h2>
@@ -72,13 +74,13 @@
         </p>
         <div class="buttons is-centered">
             {{
-                env.worldbuildingButtons.map((button) => {
-                    return `
-                        <a class="button" href="${button.url}" target="${button.target}">
-                            <span>${button.text}</span>
-                        </a>
-                    `;
-                }).join("");
+            env.worldbuildingButtons.map((button) => {
+            return `
+            <a class="button" href="${button.url}" target="${button.target}">
+                <span>${button.text}</span>
+            </a>
+            `;
+            }).join("");
             }}
         </div>
     </div>
@@ -88,43 +90,44 @@
     <div class="container is-max-desktop has-text-centered">
         <div class="columns is-desktop is-8">
             {{
-                env.kinds.map((kind, index) => {
-                    return `
-                        <div class="column">
-                            <div id="tcg-card-holder-${kind.cardID}" class="tcg-card-holder">
-                                <div id="tcg-card-${kind.cardID}" class="tcg-card tcg-card-presented tcg-card-presented-kinds"
-                                    style="background-image: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/${kind.cardID}.jpg);"
-                                    data-tilt data-tilt-reverse="true" data-tilt-glare="true" data-tilt-max-glare="0.5"
-                                    data-tilt-startX="0" data-tilt-startY="-10" data-tilt-reset-to-start="true"
-                                    onclick="openCard('${kind.cardID}')">
-                                </div>
-                            </div>
-                            <h2 class="subtitle">${kind.title}</h2>
-                            <p>${kind.description}</p>
-                        </div>
-                    `;
-                }).join("");
+            env.kinds.map((kind, index) => {
+            return `
+            <div class="column">
+                <div id="tcg-card-holder-${kind.cardID}" class="tcg-card-holder">
+                    <div id="tcg-card-${kind.cardID}" class="tcg-card tcg-card-presented tcg-card-presented-kinds"
+                        style="background-image: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/${kind.cardID}.jpg);"
+                        data-tilt data-tilt-reverse="true" data-tilt-glare="true" data-tilt-max-glare="0.5"
+                        data-tilt-startX="0" data-tilt-startY="-10" data-tilt-reset-to-start="true"
+                        onclick="openCard('${kind.cardID}')">
+                    </div>
+                </div>
+                <h2 class="subtitle">${kind.title}</h2>
+                <p>${kind.description}</p>
+            </div>
+            `;
+            }).join("");
             }}
         </div>
-        <div class="buttons is-centered">
+        <div class="buttons is-centered safe-borders">
             {{
-                env.kindsButtons.map((button) => {
-                    return `
-                        <a class="button" href="${button.url}" target="${button.target}">
-                            <span>${button.text}</span>
-                        </a>
-                    `;
-                }).join("");
+            env.kindsButtons.map((button) => {
+            return `
+            <a class="button" href="${button.url}" target="${button.target}">
+                <span>${button.text}</span>
+            </a>
+            `;
+            }).join("");
             }}
         </div>
     </div>
 </section>
 <hr />
 <section class="section">
-        <div class="background-flavour-image transparent extended fadeout-top-bottom"
-            style="background-image: url(/public/assets/play-online-background.png);">
-        </div>
-    <div class="container has-text-centered is-max-desktop">
+    <div class="background-flavour-image softextended fadeout-top-bottom"
+        style="background-image: url(/public/assets/play-online-background.webp);">
+    </div>
+    <div class="container has-text-centered is-max-desktop safe-borders">
+        <img src="/public/assets/play-online-screenshot.webp" class="is-small" />
         <h2 class="title">
             {{env.playOnlineTitle}}
         </h2>
@@ -133,67 +136,120 @@
         </p>
         <div class="buttons is-centered">
             {{
-                env.playOnlineButtons.map((button) => {
-                    return `
-                        <a class="button" href="${button.url}" target="${button.target}">
-                            <span class="icon">
-                                <img src="${button.icon}" alt="${button.text}" />
-                            </span>
-                            <span>${button.text}</span>
-                        </a>
-                    `;
-                }).join("");
+            env.playOnlineButtons.map((button) => {
+            return `
+            <a class="button" href="${button.url}" target="${button.target}">
+                <span class="icon">
+                    <img src="${button.icon}" alt="${button.text}" />
+                </span>
+                <span>${button.text}</span>
+            </a>
+            `;
+            }).join("");
             }}
         </div>
     </div>
 </section>
 <hr />
 <section class="section">
-    <div class="container">
-        <img class="flavour-image" src="/public/assets/faq.jpg" />
+    <div class="container has-text-centered is-max-desktop">
+        <div class="background-flavour-image extended-up is-hidden-mobile"
+            style="background-image: url(/public/assets/character-profiles.webp); background-size: contain; background-position: center top;">
+        </div>
+        <div class="background-flavour-image is-hidden-tablet"
+            style="background-image: url(/public/assets/character-profiles.webp); background-size: contain; background-position: center top;">
+        </div>
+        <div class="is-max-small safe-borders">
+            <h2 class="title">
+                {{env.characterCreationTitle}}
+            </h2>
+            <p class="is-max-mobile">
+                {{env.characterCreationText}}
+            </p>
+            <div class="buttons is-centered">
+                {{
+                env.characterCreationButtons.map((button) => {
+                return `
+                <a class="button" href="${button.url}" target="${button.target}">
+                    <span class="icon">
+                        <img src="${button.icon}" alt="${button.text}" />
+                    </span>
+                    <span>${button.text}</span>
+                </a>
+                `;
+                }).join("");
+                }}
+            </div>
+        </div>
+    </div>
+    <div class="container has-text-centered is-max-desktop mt-6">
+        <img src="/public/assets/character-creation-desktop.webp" class="is-hidden-mobile" />
+        <img src="/public/assets/character-creation-mobile.webp" class="is-hidden-tablet" />
+    </div>
+</section>
+<hr />
+<section class="section">
+    <div class="background-flavour-image softextended fadeout-top-bottom transparent"
+        style="background-image: url(/public/assets/join-background.webp);">
+    </div>
+    <div class="container has-text-centered is-max-desktop safe-borders">
         <h2 class="title">
+            {{env.joinTitle}}
+        </h2>
+        <p class="is-max-mobile">
+            {{env.joinText}}
+        </p>
+        <div class="buttons is-centered">
+            {{
+            env.joinButtons.map((button) => {
+            return `
+            <a class="button" href="${button.url}" target="${button.target}">
+                <span class="icon">
+                    <img src="${button.icon}" alt="${button.text}" />
+                </span>
+                <span>${button.text}</span>
+            </a>
+            `;
+            }).join("");
+            }}
+        </div>
+    </div>
+</section>
+<hr />
+<section class="section">
+    <div class="container is-max-desktop">
+        <h2 class="title has-text-centered safe-borders">
             {{env.faqTitle}}
         </h2>
-        {{
+        <div class="faq safe-borders">
+            {{
             env.faqItems.map((item) => {
-                return `
-                    <details>
-                        <summary>
-                            ${item.question}
-                        </summary>
-                        <p>
-                            ${item.answer}
-                        </p>
-                    </details>
-                `;
+            return `
+            <details>
+                <summary>
+                    ${item.question}
+                </summary>
+                <p>
+                    ${item.answer}
+                </p>
+            </details>
+            `;
             }).join("");
-        }}
+            }}
+        </div>
     </div>
 </section>
 <hr />
-<section class="section">
-    <div class="container rules has-text-justified">
-        <img class="flavour-image" src="/public/assets/rules.jpg" />
-        <h2 class="title">
-            {{env.rulesTitle}}
-        </h2>
+<footer class="section">
+    <div class="background-flavour-image extended-up fadeout-top"
+        style="background-image: url(/public/assets/footer-background.webp); background-position: center bottom;">
+    </div>
+    <div class="content has-text-centered">
         <p>
-            {{env.rulesText}}
+            {{env.footerText}}
         </p>
     </div>
-</section>
-<hr />
-<section class="section">
-    <div class="container">
-        <img class="flavour-image" src="/public/assets/contact.jpg" />
-        <h2 class="title">
-            {{env.contactTitle}}
-        </h2>
-        <p>
-            {{env.contactText}}
-        </p>
-    </div>
-</section>
+</footer>
 <div id="tcg-card-focus" onclick="closeCard()">
     <div class="tcg-card-holder tcg-card-focus-holder">
         <div class="tcg-card tcg-card-focus-card" data-tilt data-tilt-reverse="true" data-tilt-glare="true"
@@ -204,5 +260,6 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
     integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
 {{ await env.loadTemplate("page-cardfocus"); }}

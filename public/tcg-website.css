@@ -17,14 +17,19 @@
 
     --bulma-title-color: #ebecf0;
     --bulma-subtitle-color: #ebecf0;
+    --bulma-body-color: #ebecf0ee;
 
-    --bulma-body-background-color: hsl(221, 3%, 3%);
-    --bulma-scheme-main: hsl(221, 3%, 3%);
+    /* --bulma-body-background-color: hsl(221, 3%, 3%); */
+    --bulma-body-background-color: rgb(2.745% 2.745% 3.137%);
+    /* --bulma-scheme-main: rgb(221, 3%, 3%); */
+    --bulma-scheme-main: rgb(2.745% 2.745% 3.137%);
+    /* This is also referenced in the fade-outs. */
 }
 
 html,
 body {
-    font-family: "Libre Baskerville", serif;
+    /* font-family: "Libre Baskerville", serif; */
+    font-family: "Merriweather", serif;
 }
 
 .section {
@@ -89,7 +94,6 @@ h2.title {
 p {
     margin-left: auto;
     margin-right: auto;
-    font-family: "Merriweather", serif;
 }
 
 .buttons {
@@ -125,9 +129,9 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/public/assets/summary-background.jpg');
+    background-image: url('/public/assets/summary-background.webp');
     background-size: cover;
-    background-position: center top;
+    background-position: center;
     background-repeat: no-repeat;
     z-index: 0;
 }
@@ -143,22 +147,96 @@ p {
 }
 
 .background-flavour-image.fadeout-top::after {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0), var(--bulma-scheme-main) 90%);
+    background: linear-gradient(180deg,
+            rgb(2.745% 2.745% 3.137%) 0%,
+            rgb(2.745% 2.745% 3.137% / 0.999755859375) 6.25%,
+            rgb(2.745% 2.745% 3.137% / 0.998046875) 12.5%,
+            rgb(2.745% 2.745% 3.137% / 0.993408203125) 18.75%,
+            rgb(2.745% 2.745% 3.137% / 0.984375) 25%,
+            rgb(2.745% 2.745% 3.137% / 0.969482421875) 31.25%,
+            rgb(2.745% 2.745% 3.137% / 0.947265625) 37.5%,
+            rgb(2.745% 2.745% 3.137% / 0.916259765625) 43.75%,
+            rgb(2.745% 2.745% 3.137% / 0.875) 50%,
+            rgb(2.745% 2.745% 3.137% / 0.822021484375) 56.25%,
+            rgb(2.745% 2.745% 3.137% / 0.755859375) 62.5%,
+            rgb(2.745% 2.745% 3.137% / 0.675048828125) 68.75%,
+            rgb(2.745% 2.745% 3.137% / 0.578125) 75%,
+            rgb(2.745% 2.745% 3.137% / 0.463623046875) 81.25%,
+            rgb(2.745% 2.745% 3.137% / 0.330078125) 87.5%,
+            rgb(2.745% 2.745% 3.137% / 0.176025390625) 93.75%,
+            rgb(2.745% 2.745% 3.137% / 0) 100%);
 }
 
 .background-flavour-image.fadeout-bottom::after {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--bulma-scheme-main) 90%);
+    background: linear-gradient(0deg,
+            rgb(2.745% 2.745% 3.137%) 0%,
+            rgb(2.745% 2.745% 3.137% / 0.999755859375) 6.25%,
+            rgb(2.745% 2.745% 3.137% / 0.998046875) 12.5%,
+            rgb(2.745% 2.745% 3.137% / 0.993408203125) 18.75%,
+            rgb(2.745% 2.745% 3.137% / 0.984375) 25%,
+            rgb(2.745% 2.745% 3.137% / 0.969482421875) 31.25%,
+            rgb(2.745% 2.745% 3.137% / 0.947265625) 37.5%,
+            rgb(2.745% 2.745% 3.137% / 0.916259765625) 43.75%,
+            rgb(2.745% 2.745% 3.137% / 0.875) 50%,
+            rgb(2.745% 2.745% 3.137% / 0.822021484375) 56.25%,
+            rgb(2.745% 2.745% 3.137% / 0.755859375) 62.5%,
+            rgb(2.745% 2.745% 3.137% / 0.675048828125) 68.75%,
+            rgb(2.745% 2.745% 3.137% / 0.578125) 75%,
+            rgb(2.745% 2.745% 3.137% / 0.463623046875) 81.25%,
+            rgb(2.745% 2.745% 3.137% / 0.330078125) 87.5%,
+            rgb(2.745% 2.745% 3.137% / 0.176025390625) 93.75%,
+            rgb(2.745% 2.745% 3.137% / 0) 100%);
 }
 
 .background-flavour-image.fadeout-top-bottom::after {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0), var(--bulma-scheme-main) 90%), linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--bulma-scheme-main) 90%);
+    background: linear-gradient(0deg,
+            rgb(2.745% 2.745% 3.137%) 0%,
+            rgb(2.745% 2.745% 3.137% / 0.999755859375) 3.125%,
+            rgb(2.745% 2.745% 3.137% / 0.998046875) 6.25%,
+            rgb(2.745% 2.745% 3.137% / 0.993408203125) 9.375%,
+            rgb(2.745% 2.745% 3.137% / 0.984375) 12.5%,
+            rgb(2.745% 2.745% 3.137% / 0.969482421875) 15.625%,
+            rgb(2.745% 2.745% 3.137% / 0.947265625) 18.75%,
+            rgb(2.745% 2.745% 3.137% / 0.916259765625) 21.875%,
+            rgb(2.745% 2.745% 3.137% / 0.875) 25%,
+            rgb(2.745% 2.745% 3.137% / 0.822021484375) 28.125%,
+            rgb(2.745% 2.745% 3.137% / 0.755859375) 31.25%,
+            rgb(2.745% 2.745% 3.137% / 0.675048828125) 34.375%,
+            rgb(2.745% 2.745% 3.137% / 0.578125) 37.5%,
+            rgb(2.745% 2.745% 3.137% / 0.463623046875) 40.625%,
+            rgb(2.745% 2.745% 3.137% / 0.330078125) 43.75%,
+            rgb(2.745% 2.745% 3.137% / 0.176025390625) 46.875%,
+            rgb(2.745% 2.745% 3.137% / 0) 50%),
+        linear-gradient(180deg,
+            rgb(2.745% 2.745% 3.137%) 0%,
+            rgb(2.745% 2.745% 3.137% / 0.999755859375) 3.125%,
+            rgb(2.745% 2.745% 3.137% / 0.998046875) 6.25%,
+            rgb(2.745% 2.745% 3.137% / 0.993408203125) 9.375%,
+            rgb(2.745% 2.745% 3.137% / 0.984375) 12.5%,
+            rgb(2.745% 2.745% 3.137% / 0.969482421875) 15.625%,
+            rgb(2.745% 2.745% 3.137% / 0.947265625) 18.75%,
+            rgb(2.745% 2.745% 3.137% / 0.916259765625) 21.875%,
+            rgb(2.745% 2.745% 3.137% / 0.875) 25%,
+            rgb(2.745% 2.745% 3.137% / 0.822021484375) 28.125%,
+            rgb(2.745% 2.745% 3.137% / 0.755859375) 31.25%,
+            rgb(2.745% 2.745% 3.137% / 0.675048828125) 34.375%,
+            rgb(2.745% 2.745% 3.137% / 0.578125) 37.5%,
+            rgb(2.745% 2.745% 3.137% / 0.463623046875) 40.625%,
+            rgb(2.745% 2.745% 3.137% / 0.330078125) 43.75%,
+            rgb(2.745% 2.745% 3.137% / 0.176025390625) 46.875%,
+            rgb(2.745% 2.745% 3.137% / 0) 50%);
 }
 
-*:has(> .background-flavour-image.shifted-up) {
-    padding-top: min(30rem, 50vw);
+*:has(> .background-flavour-image.extended-up:not([hidden])) {
+    padding-top: min(max(7rem, 10vw + 2rem), 15rem);
 }
 
-*:has(> .background-flavour-image.extended) {
+*:has(> .background-flavour-image.extended:not([hidden])) {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+}
+
+*:has(> .background-flavour-image.softextended:not([hidden])) {
     padding-top: 15rem;
     padding-bottom: 15rem;
     margin-top: -15rem;
@@ -175,24 +253,50 @@ p {
 
 /* For some reason, the Bulma classes do not work. */
 
+.is-max-small {
+    max-width: 400px !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .is-max-mobile {
     max-width: 768px !important;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .is-max-tablet {
     max-width: 769px !important;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .is-max-desktop {
     max-width: 1024px !important;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .is-max-widescreen {
     max-width: 1216px !important;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .is-max-fullhd {
     max-width: 1408px !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.safe-borders {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.safe-borders,
+.safe-borders>* {
+    max-width: calc(100vw - 4rem) !important;
 }
 
 .flavour-image {
@@ -225,10 +329,6 @@ p {
         font-size: 2rem;
     }
 
-    p {
-        margin: 0 2rem;
-    }
-
     hr {
         height: 1rem;
         margin: 3rem 0;
@@ -244,5 +344,11 @@ p {
 
     *:has(> .shifted-up) {
         padding-top: 14rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    img.is-small {
+        max-width: 30rem;
     }
 }

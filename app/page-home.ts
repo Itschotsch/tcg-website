@@ -17,7 +17,7 @@ export namespace Website {
                     471,
                 ],
                 "catchphrase": "Ein Sammelkartenspiel",
-                "summaryText": "Werde Teil des von der Community entwickelten LARP-Sammelkartenspiels, bei dem Deine Charaktere und Geschichten lebendig werden! Tauche ein in epische Kämpfe, die die besten Momente Deiner LARP-Erlebnisse verewigen. Gestalte die Spielwelt aktiv mit, indem Du Deine eigenen Charaktere einreichst, um sie in einzigartige Karten zu verwandeln.",
+                "summaryText": "Tauche ein in ein einzigartiges Sammelkartenspiel, das die unvergesslichsten Momente Deiner LARP-Erlebnisse zum Leben erweckt. Werde Teil einer der Community und gestalte die Welt des Spiels aktiv mit.",
                 "summaryButtons": [
                     {
                         "icon": "/public/assets/discord-logo.svg",
@@ -33,10 +33,10 @@ export namespace Website {
                     }
                 ],
                 "worldbuildingTitle": "Viele Welten,<br/>ein System",
-                "worldbuildingText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "worldbuildingText": "Unser eigens entwickeltes Spielsystem wurde geschaffen, um unterschiedlichste Fantasy-Welten und -Charaktere nahtlos miteinander zu verbinden. Auch dein Charakter findet seinen Platz im Spiel: als individuelle Karte, basierend darauf, was ihn am stärksten prägt. Die Regeln sind leicht zugänglich – das Meistern fordert strategisches Geschick.",
                 "worldbuildingButtons": [
                     {
-                        "text": "Regelwerk",
+                        "text": "Regelwerk lesen",
                         "url": "https://w1a.notion.site/tcg-spielregeln",
                         "target": "_blank",
                     },
@@ -44,17 +44,17 @@ export namespace Website {
                 "kinds": [
                     {
                         "title": "Charakter",
-                        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+                        "description": "Charaktere sind das Herz Deiner Strategie. Sie führen Angriffe aus, verteidigen Dein Spielfeld und bringen unterschiedlichste, individuelle Fähigkeiten mit.",
                         "cardID": 470,
                     },
                     {
                         "title": "Ereignis",
-                        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+                        "description": "Ereignisse sind mächtige Einmalaktionen, die sofort wirken. Sie verändern den Spielverlauf plötzlich, sei es zur Unterstützung Deines Plans oder um dem Gegner in die Quere zu kommen.",
                         "cardID": 470,
                     },
                     {
                         "title": "Manifestation",
-                        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+                        "description": "Manifestationen bringen dauerhafte Effekte ins Spiel. Solange sie bestehen, beeinflussen sie das Geschehen. Doch auch sie können vom Gegner angegriffen und zerstört werden.",
                         "cardID": 470,
                     },
                 ],
@@ -65,8 +65,8 @@ export namespace Website {
                         "target": "_blank",
                     },
                 ],
-                "playOnlineTitle": "Spiele online",
-                "playOnlineText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "playOnlineTitle": "Spiele online,<br/>direkt im Browser",
+                "playOnlineText": "Das Spiel befindet sich aktuell in der Betaphase. Du kannst es kostenlos und ohne Anmeldung direkt auf TCG-Arena testen. Wir freuen uns über jede Rückmeldung aus der Community, um das System weiterzuentwickeln.",
                 "playOnlineButtons": [
                     {
                         "icon": "/public/assets/tcg-arena-logo.svg",
@@ -81,37 +81,53 @@ export namespace Website {
                         "target": "_blank",
                     },
                 ],
+                "characterCreationTitle": "Dein Charakter als Spielkarte",
+                "characterCreationText": "Reiche Deinen Charakter ein und wir werden sie als Karte im Spiel integrieren.",
+                "characterCreationButtons": [
+                    {
+                        "icon": "/public/assets/discord-logo.svg",
+                        "text": "Charakter einreichen",
+                        "url": "https://discord.gg/BVQrSYF5jg",
+                        "target": "_blank",
+                    },
+                ],
+                "joinTitle": "Werde Teil des Teams",
+                "joinText": "Dieses Sammelkartenspiel entsteht aus der Community heraus – und Du kannst ein Teil davon sein. Ob mit Playtesting, Kartendesign, Artwork oder einfach guten Ideen: Wir freuen uns über alle, die mithelfen wollen, das Spiel gemeinsam weiterzuentwickeln.",
+                "joinButtons": [
+                    {
+                        "icon": "/public/assets/discord-logo.svg",
+                        "text": "Kontaktieren",
+                        "url": "https://discord.gg/BVQrSYF5jg",
+                        "target": "_blank",
+                    },
+                ],
                 "faqTitle": "FAQ",
                 "faqItems": [
                     {
-                        "question": "Was ist das LARP-Sammelkartenspiel?",
-                        "answer": "Unser Sammelkartenspiel wird speziell für die LARP-Gemeinschaft entwickelt und ist perfekt für das Spiel während oder zwischen LARP-Konventen geeignet.",
+                        "question": "Was ist dieses TCG?",
+                        "answer": "Es ist ein Sammelkartenspiel, das auf Charakteren und Geschichten aus dem Live Action Roleplay basiert. Es vereint taktisches Kartenspiel mit der LARP-Community."
                     },
                     {
-                        "question": "Wie integriert das Spiel die Charaktere von LARP-Spielern?",
-                        "answer": "Basierend auf den schönsten LARP-Momenten integrieren wir die Charaktere von LARP-Spielern in unser Spiel, sodass Du sie sammeln und Deine eigene epische Geschichte gestalten kannst.",
+                        "question": "Wie kann ich mitspielen?",
+                        "answer": "Du kannst direkt im Browser auf TCG-Arena spielen – kostenlos und ohne Anmeldung. Außerdem kannst Du Dir das Regelwerk durchlesen und jederzeit gerne Feedback geben."
                     },
                     {
-                        "question": "Welche Inspirationen hat das LARP-Sammelkartenspiel?",
-                        "answer": "Die Regeln sind von den großen Sammelkartenspielen inspiriert und speziell auf LARP angepasst, um ein aufregendes und authentisches Spielerlebnis zu bieten.",
+                        "question": "Kann ich eigene Charaktere ins Spiel bringen?",
+                        "answer": "Ja! Reiche Deinen LARP-Charakter bei uns ein, und wir arbeiten gemeinsam daran, ihn als individuelle Spielkarte umzusetzen."
                     },
                     {
-                        "question": "Wer hat das Projekt ins Leben gerufen?",
-                        "answer": "Dieses Projekt wurde von Aetherlab von der LARP-Gemeinschaft für die LARP-Gemeinschaft ins Leben gerufen.",
+                        "question": "Kostet das Spiel etwas?",
+                        "answer": "Nein, das Spiel ist aktuell kostenlos verfügbar. Wir entwickeln es gemeinsam mit der Community weiter und freuen uns über jede Teilnahme."
                     },
                     {
-                        "question": "Wie kann ich auf dem Laufenden bleiben?",
-                        "answer": "Tritt unserem <a href=\"https://discord.gg/BVQrSYF5jg\">Discord-Server</a> bei, um keine News zu verpassen!",
+                        "question": "Wie funktioniert das mit den verschiedenen Welten?",
+                        "answer": "Unser Spielsystem ist so entworfen, dass Charaktere aus unterschiedlichen Settings miteinander kompatibel sind – unabhängig von Welt, Zeit oder Magiesystem."
                     },
                     {
-                        "question": "Kann ich irgendwo sehen, welche Karten es gibt?",
-                        "answer": "Ja, es gibt eine <a href=\"/cards\">Liste der Karten im Playtest</a>.",
-                    },
+                        "question": "Wie kann ich Teil des Entwicklerteams werden?",
+                        "answer": "Schließe Dich unserem Discord an und melde Dich bei uns! Egal ob Playtesting, Game Design, Balancing oder Art – wir freuen uns über jede Unterstützung."
+                    }
                 ],
-                "rulesTitle": "Regeln",
-                "rulesText": "Die Regeln sind von den großen Sammelkartenspielen inspiriert und speziell auf LARP angepasst, um ein aufregendes und authentisches Spielerlebnis zu bieten. Lorem ipsum odor amet, consectetuer adipiscing elit. Per sociosqu maximus neque torquent mus primis nunc. Arcu netus facilisi porttitor torquent ultrices sagittis scelerisque tempor. Quisque pretium interdum sagittis class dictumst. Luctus elementum integer cubilia tellus lorem. Facilisi per est lectus nam dis. Lacus phasellus dictum sociosqu dolor nibh; non penatibus.<br/>Dignissim sapien auctor mauris; molestie cras mattis. Ultrices sit lacus auctor elementum leo. Ipsum tempus proin torquent proin placerat massa habitant ut cursus. Volutpat velit faucibus cursus habitant cubilia suspendisse sed fringilla. Dictumst inceptos ultricies est proin mus erat lectus. Fringilla neque diam sollicitudin diam, vulputate et. Euismod adipiscing faucibus ridiculus accumsan massa mi porttitor sagittis consequat.",
-                "contactTitle": "Kontakt",
-                "contactText": "Du kannst uns jederzeit mit dem Discord-Server in unserem <a href=\"https://discord.gg/BVQrSYF5jg\">Discord-Server</a> besprechen.",
                 "footerText": `© ${new Date().getFullYear()} Aetherlab`,
                 "loadTemplate": Preprocessor.loadTemplate,
             });

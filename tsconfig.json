@@ -4,17 +4,25 @@
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
 		"target": "es6",
-        "noImplicitAny": true,
+		"noImplicitAny": true,
 		"moduleResolution": "node",
 		"sourceMap": true,
 		"outDir": "dist",
-        "baseUrl": ".",
-        "paths": {
-            "*": ["node_modules/*", "src/types/*"]
-        },
+		"baseUrl": ".",
+		"paths": {
+			"*": [
+				"node_modules/*",
+				"src/types/*"
+			]
+		},
 		"types": [
 			"node"
 		]
 	},
-	"lib": ["es2015"]
+	"include": [
+		"./app/**/*"
+	],
+	"lib": [
+		"es2015"
+	]
 }

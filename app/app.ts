@@ -1,4 +1,6 @@
 import express from 'express';
+import * as path from "path";
+import * as process from "process";
 import { Website as Preprocessor } from './preprocessor';
 import { Website as PageHome } from './page-home';
 import { Website as PageCardlist } from './page-cardlist';
@@ -8,7 +10,7 @@ Preprocessor.initialise();
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use("/public", express.static(__dirname + '/../app/public'));
+app.use("/public", express.static(path.join(process.cwd(), `public`)));
 
 PageHome.register(app);
 PageCardlist.register(app);

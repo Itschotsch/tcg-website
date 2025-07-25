@@ -1,6 +1,8 @@
 import * as fs from "fs";
 import * as csv from "csv";
 import * as https from "https";
+import * as path from "path";
+import * as process from "process";
 import { Website as Logger } from "./logger";
 
 export namespace Website {
@@ -11,11 +13,11 @@ export namespace Website {
 
     export async function initialise(): Promise<void> {
         const url = "https://itschotsch.github.io/tcg-maker/input/csv/Alle%20Karten%2070ddd0aaafb74f56b205e643b0901290_all.csv";
-        const destination = `${__dirname}/../app/private/cardlist-all.csv`;
+        const fileName = path.join(process.cwd(), 'private/cardlist-all.csv');
         return new Promise<void>((resolve, reject) => {
             https.get(url, (response: any) => {
                 if (response.statusCode === 200) {
-                    const fileStream = fs.createWriteStream(destination);
+                    const fileStream = fs.createWriteStream(fileName);
                     response.pipe(fileStream);
                     fileStream.on('finish', () => {
                         fileStream.close();
@@ -34,7 +36,8 @@ export namespace Website {
     }
 
     export async function loadTemplate(name: string): Promise<string> {
-        return fs.readFileSync(`${__dirname}/../app/private/${name}.html`, "utf-8");
+        const fileName = path.join(process.cwd(), `private/${name}.html`);
+        return fs.readFileSync(fileName, "utf-8");
     }
 
     export async function preprocessTemplate(template: string, env: { [key: string]: any }): Promise<string> {
@@ -117,7 +120,7 @@ export namespace Website {
 
     export async function loadCSV(): Promise<{ [key: string]: string }[]> {
         // https://csv.js.org/parse/
-        let fileName = `${__dirname}/../app/private/cardlist-all.csv`;
+        const fileName = path.join(process.cwd(), 'private/cardlist-all.csv');
         return new Promise((resolve, reject) => {
             fs.createReadStream(fileName)
                 .pipe(csv.parse(
@@ -162,7 +165,7 @@ export namespace Website {
     }
 
     export async function loadCommasSeparatedList(name: string): Promise<string[]> {
-        let fileName = `${__dirname}/../app/private/${name}.txt`;
+        const fileName = path.join(process.cwd(), `private/${name}.txt`);
         return new Promise((resolve, reject) => {
             fs.readFile(fileName, "utf-8", (err, data) => {
                 if (err) {
@@ -175,7 +178,7 @@ export namespace Website {
     }
 
     export async function commasSeparatedListExists(name: string): Promise<boolean> {
-        let fileName = `${__dirname}/../app/private/${name}.txt`;
+        const fileName = path.join(process.cwd(), `private/${name}.txt`);
         return new Promise((resolve, reject) => {
             fs.access(fileName, fs.constants.F_OK, (err) => {
                 if (err) {

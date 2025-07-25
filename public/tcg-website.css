@@ -290,13 +290,8 @@ p {
 }
 
 .safe-borders {
-    margin-left: 2rem;
-    margin-right: 2rem;
-}
-
-.safe-borders,
-.safe-borders>* {
-    max-width: calc(100vw - 4rem) !important;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .flavour-image {

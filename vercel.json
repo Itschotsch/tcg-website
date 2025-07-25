@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         {
-            "src": "dist/app.js",
+            "src": "app/app.ts",
             "use": "@vercel/node",
             "config": {
                 "includeFiles": [
@@ -14,7 +14,12 @@
     "routes": [
         {
             "src": "/(.*)",
+            "dest": "app/app.ts"
+        },
+        {
+            "src": "/(.*)",
             "dest": "dist/app.js"
         }
-    ]
+    ],
+    "outputDirectory": "dist"
 }

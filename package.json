@@ -7,8 +7,8 @@
     "dev": "npx nodemon app app/app.ts",
     "start": "npx nodemon app/app.js",
     "build": "npm run build:production",
-    "build:production": "rimraf dist && tsc && cp -r public dist/public && cp -r private dist/private",
-    "build:preview": "rimraf dist && tsc && cp -r public dist/public && cp -r private dist/private",
+    "build:production": "echo 'PROD' && rimraf dist && tsc",
+    "build:preview": "echo 'STAGE' && rimraf dist && tsc",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add dist",
     "test": "echo \"Error: no test specified\" && exit 1"

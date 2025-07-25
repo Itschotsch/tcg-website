@@ -1,6 +1,9 @@
 import express from 'express';
+import { Website as Preprocessor } from './preprocessor';
 import { Website as PageHome } from './page-home';
 import { Website as PageCardlist } from './page-cardlist';
+
+Preprocessor.initialise();
 
 const app = express();
 const port = process.env.PORT || 3000;

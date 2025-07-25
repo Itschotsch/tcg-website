@@ -1,5 +1,5 @@
 import express from 'express';
-import {Website as Preprocessor} from './preprocessor';
+import { Website as Preprocessor } from './preprocessor';
 
 export namespace Website {
 
@@ -7,18 +7,80 @@ export namespace Website {
         app.get('/', async (req, res) => {
             let template: string = await Preprocessor.loadTemplate("page-scaffold");
             template = await Preprocessor.preprocessTemplate(template, {
-                "websiteName": "Ark Chronika",
+                "websiteName": "LARP TCG",
                 "pageBody": await Preprocessor.loadTemplate("page-home"),
-                "catchphrase": "Ein LARP-Sammelkartenspiel",
                 "previewCardIDs": [
-                    362,
+                    470,
                     402,
                     406,
                     453,
-                    454,
+                    471,
                 ],
-                "summary": "Entdecke Ark Chronika - das einzigartige LARP-Sammelkartenspiel, das deine Charaktere und epischen Momente verewigt! Tauche ein in eine Welt, in der deine liebsten LARP-Erinnerungen zu spielbaren Karten werden und erschaffe deine eigene Legende. Mit Regeln, die von beliebten Sammelkartenspielen inspiriert und speziell für LARPer angepasst wurden, bietet Ark Chronika ein authentisches und spannendes Spielerlebnis. Ob auf Veranstaltungen oder dazwischen, dieses von Aetherlab entwickelte Spiel bringt die LARP-Gemeinschaft auf eine ganz neue Art zusammen. Sammle, tausche und spiele mit Karten, die deine eigenen Abenteuer und die deiner Freunde widerspiegeln. Werde Teil dieser aufregenden Reise, bleibe über unseren Discord-Server auf dem Laufenden und gestalte mit uns die Zukunft!",
-                "duelText": "Duelliert Euch!",
+                "catchphrase": "Ein Sammelkartenspiel",
+                "summaryText": "Werde Teil des von der Community entwickelten LARP-Sammelkartenspiels, bei dem Deine Charaktere und Geschichten lebendig werden! Tauche ein in epische Kämpfe, die die besten Momente Deiner LARP-Erlebnisse verewigen. Gestalte die Spielwelt aktiv mit, indem Du Deine eigenen Charaktere einreichst, um sie in einzigartige Karten zu verwandeln.",
+                "summaryButtons": [
+                    {
+                        "icon": "/public/assets/discord-logo.svg",
+                        "text": "Discord beitreten",
+                        "url": "https://discord.gg/BVQrSYF5jg",
+                        "target": "_blank",
+                    },
+                    {
+                        "icon": "/public/assets/tcg-arena-logo.svg",
+                        "text": "Online spielen",
+                        "url": "https://tcg-arena.fr/load/aHR0cHMlM0ElMkYlMkZpdHNjaG90c2NoLmdpdGh1Yi5pbyUyRnRjZy1tYWtlciUyRnRjZy1hcmVuYSUyRm1haW4uanNvbg",
+                        "target": "_blank",
+                    }
+                ],
+                "worldbuildingTitle": "Viele Welten,<br/>ein System",
+                "worldbuildingText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "worldbuildingButtons": [
+                    {
+                        "text": "Regelwerk",
+                        "url": "https://w1a.notion.site/tcg-spielregeln",
+                        "target": "_blank",
+                    },
+                ],
+                "kinds": [
+                    {
+                        "title": "Charakter",
+                        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+                        "cardID": 470,
+                    },
+                    {
+                        "title": "Ereignis",
+                        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+                        "cardID": 470,
+                    },
+                    {
+                        "title": "Manifestation",
+                        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+                        "cardID": 470,
+                    },
+                ],
+                "kindsButtons": [
+                    {
+                        "text": "Kartenliste",
+                        "url": "/cards",
+                        "target": "_blank",
+                    },
+                ],
+                "playOnlineTitle": "Spiele online",
+                "playOnlineText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "playOnlineButtons": [
+                    {
+                        "icon": "/public/assets/tcg-arena-logo.svg",
+                        "text": "Online spielen",
+                        "url": "https://tcg-arena.fr/load/aHR0cHMlM0ElMkYlMkZpdHNjaG90c2NoLmdpdGh1Yi5pbyUyRnRjZy1tYWtlciUyRnRjZy1hcmVuYSUyRm1haW4uanNvbg",
+                        "target": "_blank",
+                    },
+                    {
+                        "icon": "/public/assets/notion-logo.svg",
+                        "text": "Anleitung",
+                        "url": "https://w1a.notion.site/tcg-arena-anleitung",
+                        "target": "_blank",
+                    },
+                ],
                 "faqTitle": "FAQ",
                 "faqItems": [
                     {

@@ -1,6 +1,6 @@
 :root {
-    --crop-size-x: 4.704301075268817204301075268817%;
-    --crop-size-y: 3.464870067372473532242540904716%;
+    --crop-size-x: 0%;
+    --crop-size-y: 0%;
     --border-radius-x: 4.761904761904761904761904761905%;
     --border-radius-y: 3.409090909090909090909090909091%;
     --card-aspect-ratio: calc(63.0 / 88.0);
@@ -32,22 +32,6 @@
     transform: translateX(-50%);
 }
 
-/* Responsive behaviour for phones. */
-@media only screen and (max-width: 768px) {
-    .tcg-card-holder:first-of-type,
-    .tcg-card-holder:last-of-type {
-        display: none;
-    }
-
-    #tcg-card-focus .tcg-card-holder {
-        display: inherit;
-    }
-
-    .tcg-card-presented {
-        height: 40vw !important;
-    }
-}
-
 .tcg-card {
     aspect-ratio: 63 / 88;
 
@@ -58,7 +42,7 @@
     box-shadow: 0 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
 
     /* Image */
-    background: url(/public/cards/somecard.png) no-repeat center center;
+    background: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/486.jpg) no-repeat center center;
     background-size: 100% 100%;
     background-size: calc(100% + calc(var(--crop-size-x) * 2)) calc(100% + calc(var(--crop-size-y) * 2));
 
@@ -67,17 +51,28 @@
 
 .tcg-card-presented {
     display: inline-block;
-    height: min(33vh, 24.5vw);
     max-height: 25rem;
+}
+
+.tcg-card-presented-summary {
+    height: min(33vh, 24.5vw);
+}
+
+.tcg-card-presented-kinds {
+    width: 100%;
 }
 
 .tcg-card-holder {
     position: relative;
     display: inline-block;
-    /* width: 0; */
+    width: 100%;
 
     /* Animate transform */
     transition: all 0.25s ease;
+}
+
+.tcg-card-holder+h2 {
+    margin-top: 2rem;
 }
 
 /* .tcg-card-holder.left-card {
@@ -124,6 +119,7 @@
     height: 100%;
     display: none;
     opacity: 0;
+    z-index: 10;
 }
 
 .tcg-card-focus-holder {
@@ -154,6 +150,28 @@
 }
 
 .js-tilt-glare-inner {
-    width: max(100vw, 100vh) !important;
-    height: max(100vw, 100vh) !important;
+    width: max(120vw, 120vh) !important;
+    height: max(120vw, 120vh) !important;
+}
+
+/* Responsive behaviour for phones. */
+@media only screen and (max-width: 768px) {
+
+    #tcg-card-focus .tcg-card-holder {
+        display: inherit;
+    }
+
+    .tcg-card-presented-summary {
+        height: 40vw !important;
+    }
+}
+
+/* Desktop */
+@media only screen and (max-width: 1024px) {
+
+    .tcg-card-presented-kinds {
+        width: auto;
+        height: 20rem;
+    }
+
 }

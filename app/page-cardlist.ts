@@ -1,5 +1,5 @@
 import express from 'express';
-import {Website as Preprocessor} from './preprocessor';
+import { Website as Preprocessor } from './preprocessor';
 
 export namespace Website {
 
@@ -21,7 +21,7 @@ export namespace Website {
                 "catchphrase": "Durchstöbere die Karten",
                 "cardlistName": cardlistName.charAt(0).toUpperCase() + cardlistName.slice(1),
                 "cardData": maskCardData(
-                    await Preprocessor.loadCSV("Alle Karten 70ddd0aaafb74f56b205e643b0901290_all"),
+                    await Preprocessor.loadCSV(),
                     (await Preprocessor.loadCommasSeparatedList(cardlistFile)).sort()
                 ),
                 "footerText": `© ${new Date().getFullYear()} Aetherlab`,

@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import * as csv from "csv";
+import * as https from "https";
 import { Website as Logger } from "./logger";
 
 export namespace Website {
@@ -7,7 +8,31 @@ export namespace Website {
     export const Options = {
         maximumPreprocessingIterations: 100
     };
-    
+
+    export async function initialise(): Promise<void> {
+        // const url = "https://itschotsch.github.io/tcg-maker/input/csv/Alle%20Karten%2070ddd0aaafb74f56b205e643b0901290_all.csv";
+        // const destination = `${__dirname}/../app/private/cardlist-all.csv`;
+        // return new Promise<void>((resolve, reject) => {
+        //     https.get(url, (response: any) => {
+        //         if (response.statusCode === 200) {
+        //             const fileStream = fs.createWriteStream(destination);
+        //             response.pipe(fileStream);
+        //             fileStream.on('finish', () => {
+        //                 fileStream.close();
+        //                 Logger.log("Downloaded latest card data.");
+        //                 resolve();
+        //             });
+        //         } else {
+        //             Logger.err(`Failed to download card data. Status code: ${response.statusCode}`);
+        //             reject(new Error(`Failed to download card data. Status code: ${response.statusCode}`));
+        //         }
+        //     }).on('error', (err: any) => {
+        //         Logger.err("Error while downloading card data:", err);
+        //         reject(err);
+        //     });
+        // });
+    }
+
     export async function loadTemplate(name: string): Promise<string> {
         return fs.readFileSync(`${__dirname}/../app/private/${name}.html`, "utf-8");
     }
@@ -43,7 +68,7 @@ export namespace Website {
             }
             preprocessingIterations++;
         }
-    
+
         return template;
     }
 
@@ -51,13 +76,13 @@ export namespace Website {
     function findPreprocessScriptIndices(str: string): PreprocessScriptIndices | null {
         const startDelimiter: string = "{{";
         const endDelimiter: string = "}}";
-    
+
         // Find the first opening tag:
         const startIndex: number = str.indexOf(startDelimiter);
         if (startIndex === -1) {
             return null;
         }
-    
+
         // Find the first closing tag on the same level:
         let level: number = 1;
         let currentIndex: number = startIndex + startDelimiter.length;
@@ -79,66 +104,66 @@ export namespace Website {
                 return null;
             }
         }
-    
+
         return {
             tagStartIndex: startIndex,
             tagEndIndex: currentIndex,
             scriptStartIndex: startIndex + startDelimiter.length,
             scriptEndIndex: currentIndex - endDelimiter.length
         };
-    }    
+    }
 
     // Aetherlab-specific
-    
-    export async function loadCSV(name: string): Promise<{ [key: string]: string }[]> {
-        // https://csv.js.org/parse/
-        let fileName = `${__dirname}/../app/private/${name}.csv`;
-        return new Promise((resolve, reject) => { 
-            fs.createReadStream(fileName)
-            .pipe(csv.parse(
-                {
-                    columns: true,
-                    bom: true,
 
-                    // Aetherlab specific columns from Notion:
-                    // ID,Name,Kartenart,Kartentext,Element,Kosten,⚔️,🛡️,⭕️,Kartentyp,Status,Created by,Kosten Terra,Kosten Aqua,Kosten Aeris,Kosten Ignis,Kosten Magica,Kosten Ungeprägt,Flavourtext,Artwork,Art Production,Glossar,Decklist
-                    // columns: [
-                    //     "ID",
-                    //     "Layout",
-                    //     "Title",
-                    //     "Subtitle",
-                    //     "Description",
-                    //     "Artwork",
-                    //     "EntityKind",
-                    //     "EntityType",
-                    //     "OffensiveStat",
-                    //     "DefensiveStat",
-                    //     "ShieldspellStat",
-                    //     "FlavourText",
-                    //     // "CostElement",
-                    //     // "CostAmount",
-                    //     "CostTerra",
-                    //     "CostAqua",
-                    //     "CostAeris",
-                    //     "CostIgnis",
-                    //     "CostMagica",
-                    //     "CostUnshaped",
-                    //     "ElementalAmount"
-                    // ],
-                }, (err, data) => {
-                    if (err) {
-                        reject(err);
-                    } else {
-                        resolve(data);
+    export async function loadCSV(): Promise<{ [key: string]: string }[]> {
+        // https://csv.js.org/parse/
+        let fileName = `${__dirname}/../app/private/cardlist-all.csv`;
+        return new Promise((resolve, reject) => {
+            fs.createReadStream(fileName)
+                .pipe(csv.parse(
+                    {
+                        columns: true,
+                        bom: true,
+
+                        // Aetherlab specific columns from Notion:
+                        // ID,Name,Kartenart,Kartentext,Element,Kosten,⚔️,🛡️,⭕️,Kartentyp,Status,Created by,Kosten Terra,Kosten Aqua,Kosten Aeris,Kosten Ignis,Kosten Magica,Kosten Ungeprägt,Flavourtext,Artwork,Art Production,Glossar,Decklist
+                        // columns: [
+                        //     "ID",
+                        //     "Layout",
+                        //     "Title",
+                        //     "Subtitle",
+                        //     "Description",
+                        //     "Artwork",
+                        //     "EntityKind",
+                        //     "EntityType",
+                        //     "OffensiveStat",
+                        //     "DefensiveStat",
+                        //     "ShieldspellStat",
+                        //     "FlavourText",
+                        //     // "CostElement",
+                        //     // "CostAmount",
+                        //     "CostTerra",
+                        //     "CostAqua",
+                        //     "CostAeris",
+                        //     "CostIgnis",
+                        //     "CostMagica",
+                        //     "CostUnshaped",
+                        //     "ElementalAmount"
+                        // ],
+                    }, (err, data) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(data);
+                        }
                     }
-                }
-            ));
+                ));
         });
     }
 
     export async function loadCommasSeparatedList(name: string): Promise<string[]> {
         let fileName = `${__dirname}/../app/private/${name}.txt`;
-        return new Promise((resolve, reject) => { 
+        return new Promise((resolve, reject) => {
             fs.readFile(fileName, "utf-8", (err, data) => {
                 if (err) {
                     reject(err);
@@ -151,7 +176,7 @@ export namespace Website {
 
     export async function commasSeparatedListExists(name: string): Promise<boolean> {
         let fileName = `${__dirname}/../app/private/${name}.txt`;
-        return new Promise((resolve, reject) => { 
+        return new Promise((resolve, reject) => {
             fs.access(fileName, fs.constants.F_OK, (err) => {
                 if (err) {
                     resolve(false);

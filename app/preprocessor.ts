@@ -10,27 +10,27 @@ export namespace Website {
     };
 
     export async function initialise(): Promise<void> {
-        // const url = "https://itschotsch.github.io/tcg-maker/input/csv/Alle%20Karten%2070ddd0aaafb74f56b205e643b0901290_all.csv";
-        // const destination = `${__dirname}/../app/private/cardlist-all.csv`;
-        // return new Promise<void>((resolve, reject) => {
-        //     https.get(url, (response: any) => {
-        //         if (response.statusCode === 200) {
-        //             const fileStream = fs.createWriteStream(destination);
-        //             response.pipe(fileStream);
-        //             fileStream.on('finish', () => {
-        //                 fileStream.close();
-        //                 Logger.log("Downloaded latest card data.");
-        //                 resolve();
-        //             });
-        //         } else {
-        //             Logger.err(`Failed to download card data. Status code: ${response.statusCode}`);
-        //             reject(new Error(`Failed to download card data. Status code: ${response.statusCode}`));
-        //         }
-        //     }).on('error', (err: any) => {
-        //         Logger.err("Error while downloading card data:", err);
-        //         reject(err);
-        //     });
-        // });
+        const url = "https://itschotsch.github.io/tcg-maker/input/csv/Alle%20Karten%2070ddd0aaafb74f56b205e643b0901290_all.csv";
+        const destination = `${__dirname}/../app/private/cardlist-all.csv`;
+        return new Promise<void>((resolve, reject) => {
+            https.get(url, (response: any) => {
+                if (response.statusCode === 200) {
+                    const fileStream = fs.createWriteStream(destination);
+                    response.pipe(fileStream);
+                    fileStream.on('finish', () => {
+                        fileStream.close();
+                        Logger.log("Downloaded latest card data.");
+                        resolve();
+                    });
+                } else {
+                    Logger.err(`Failed to download card data. Status code: ${response.statusCode}`);
+                    reject(new Error(`Failed to download card data. Status code: ${response.statusCode}`));
+                }
+            }).on('error', (err: any) => {
+                Logger.err("Error while downloading card data:", err);
+                reject(err);
+            });
+        });
     }
 
     export async function loadTemplate(name: string): Promise<string> {
@@ -150,7 +150,7 @@ export namespace Website {
                         //     "CostUnshaped",
                         //     "ElementalAmount"
                         // ],
-                    }, (err, data) => {
+                    }, (err, data: { [key: string]: string }[]) => {
                         if (err) {
                             reject(err);
                         } else {

@@ -11,7 +11,7 @@ export namespace Website {
                 "pageBody": await Preprocessor.loadTemplate("page-home"),
                 "previewCardIDs": [
                     470,
-                    402,
+                    407,
                     406,
                     453,
                     471,
@@ -45,17 +45,17 @@ export namespace Website {
                     {
                         "title": "Charakter",
                         "description": "Charaktere sind das Herz Deiner Strategie. Sie führen Angriffe aus, verteidigen Dein Spielfeld und bringen unterschiedlichste, individuelle Fähigkeiten mit.",
-                        "cardID": 470,
+                        "cardID": 484,
                     },
                     {
                         "title": "Ereignis",
                         "description": "Ereignisse sind mächtige Einmalaktionen, die sofort wirken. Sie verändern den Spielverlauf plötzlich, sei es zur Unterstützung Deines Plans oder um dem Gegner in die Quere zu kommen.",
-                        "cardID": 470,
+                        "cardID": 460,
                     },
                     {
                         "title": "Manifestation",
                         "description": "Manifestationen bringen dauerhafte Effekte ins Spiel. Solange sie bestehen, beeinflussen sie das Geschehen. Doch auch sie können vom Gegner angegriffen und zerstört werden.",
-                        "cardID": 470,
+                        "cardID": 197,
                     },
                 ],
                 "kindsButtons": [
@@ -85,9 +85,8 @@ export namespace Website {
                 "characterCreationText": "Reiche Deinen Charakter ein und wir werden sie als Karte im Spiel integrieren.",
                 "characterCreationButtons": [
                     {
-                        "icon": "/public/assets/discord-logo.svg",
                         "text": "Charakter einreichen",
-                        "url": "https://discord.gg/BVQrSYF5jg",
+                        "url": "https://w1a.notion.site/1f895bba56ba8019991ec719a66e5b53?pvs=105",
                         "target": "_blank",
                     },
                 ],

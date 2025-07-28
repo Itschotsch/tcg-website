@@ -85,6 +85,7 @@ export namespace Website {
                 "characterCreationText": "Reiche Deinen Charakter ein und wir werden sie als Karte im Spiel integrieren.",
                 "characterCreationButtons": [
                     {
+                        "icon": "/public/assets/notion-logo.svg",
                         "text": "Charakter einreichen",
                         "url": "https://w1a.notion.site/1f895bba56ba8019991ec719a66e5b53?pvs=105",
                         "target": "_blank",

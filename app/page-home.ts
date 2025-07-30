@@ -128,7 +128,7 @@ export namespace Website {
                         "answer": "Schließe Dich unserem Discord an und melde Dich bei uns! Egal ob Playtesting, Game Design, Balancing oder Art – wir freuen uns über jede Unterstützung."
                     }
                 ],
-                "footerText": `© ${new Date().getFullYear()} Aetherlab`,
+                "footerText": `© ${new Date().getFullYear()} Verein Aetherlab`,
                 "loadTemplate": Preprocessor.loadTemplate,
             });
             res.send(template);

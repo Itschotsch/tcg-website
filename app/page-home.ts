@@ -13,8 +13,8 @@ export namespace Website {
                     470,
                     407,
                     406,
-                    453,
-                    471,
+                    188,
+                    485
                 ],
                 "catchphrase": "Ein Sammelkartenspiel",
                 "summaryText": "Tauche ein in ein einzigartiges Sammelkartenspiel, das die unvergesslichsten Momente Deiner LARP-Erlebnisse zum Leben erweckt. Werde Teil einer der Community und gestalte die Welt des Spiels aktiv mit.",
@@ -136,3 +136,4 @@ export namespace Website {
     }
 
 }
+

@@ -12,8 +12,8 @@ export namespace Website {
                 "previewCardIDs": [
                     470,
                     407,
-                    406,
                     188,
+                    406,
                     485
                 ],
                 "catchphrase": "Ein Sammelkartenspiel",
@@ -136,4 +136,5 @@ export namespace Website {
     }
 
 }
+
 

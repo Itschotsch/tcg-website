@@ -6,27 +6,26 @@
             <div class="tcg-card-collection-holder">
                 <div class="tcg-card-collection">
                     {{
-                    env.previewCardIDs.map((id, index) => {
-                    let totalCardCount = env.previewCardIDs.length;
-                    let starCardIndex = Math.floor(totalCardCount / 2);
-                    let starCardIndexOffset = index - starCardIndex;
-                    let styleZIndex = `z-index: ${starCardIndex - Math.abs(starCardIndexOffset)}`;
-                    let styleTransform = `transform: scale(1) rotateZ(${starCardIndexOffset * 5}deg) translate(0,
-                    ${(Math.pow(Math.abs(starCardIndexOffset), 1.7) - starCardIndex) * 5}%)`;
-                    let hideOnMobile = (index === 0 || index === totalCardCount - 1) ? 'is-hidden-mobile' : '';
+                        env.previewCardIDs.map((id, index) => {
+                        let totalCardCount = env.previewCardIDs.length;
+                        let starCardIndex = Math.floor(totalCardCount / 2);
+                        let starCardIndexOffset = index - starCardIndex;
+                        let styleZIndex = `z-index: ${starCardIndex - Math.abs(starCardIndexOffset)}`;
+                        let styleTransform = `transform: scale(1) rotateZ(${starCardIndexOffset * 5}deg) translate(0, ${(Math.pow(Math.abs(starCardIndexOffset), 1.7) - starCardIndex) * 5}%)`;
+                        let hideOnMobile = (index === 0 || index === totalCardCount - 1) ? 'is-hidden-mobile' : '';
 
-                    return `
-                    <div id="tcg-card-holder-${id}" class="tcg-card-holder ${hideOnMobile}"
-                        style="${styleZIndex}; ${styleTransform};">
-                        <div id="tcg-card-${id}" class="tcg-card tcg-card-presented tcg-card-presented-summary"
-                            style="background-image: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/${id}.jpg);"
-                            data-tilt data-tilt-reverse="true" data-tilt-glare="true" data-tilt-max-glare="0.5"
-                            data-tilt-startX="0" data-tilt-startY="-10" data-tilt-reset-to-start="true"
-                            onclick="openCard('${id}')">
-                        </div>
-                    </div>
-                    `;
-                    }).join("");
+                        return `
+                            <div id="tcg-card-holder-${id}" class="tcg-card-holder ${hideOnMobile}"
+                                style="${styleZIndex}; ${styleTransform};">
+                                <div id="tcg-card-${id}" class="tcg-card tcg-card-presented tcg-card-presented-summary"
+                                    style="background-image: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/public/${id}.jpg);"
+                                    data-tilt data-tilt-reverse="true" data-tilt-glare="true" data-tilt-max-glare="0.5"
+                                    data-tilt-startX="0" data-tilt-startY="-10" data-tilt-reset-to-start="true"
+                                    onclick="openCard('${id}')">
+                                </div>
+                            </div>
+                        `;
+                        }).join("");
                     }}
                 </div>
             </div>
@@ -46,16 +45,16 @@
         </p>
         <div class="buttons is-centered">
             {{
-            env.summaryButtons.map((button) => {
-            return `
-            <a class="button" href="${button.url}" target="${button.target}">
-                <span class="icon">
-                    <img src="${button.icon}" alt="${button.text}" />
-                </span>
-                <span>${button.text}</span>
-            </a>
-            `;
-            }).join("");
+                env.summaryButtons.map((button) => {
+                return `
+                    <a class="button" href="${button.url}" target="${button.target}">
+                        <span class="icon">
+                            <img src="${button.icon}" alt="${button.text}" />
+                        </span>
+                        <span>${button.text}</span>
+                    </a>
+                `;
+                }).join("");
             }}
         </div>
     </div>
@@ -74,13 +73,13 @@
         </p>
         <div class="buttons is-centered">
             {{
-            env.worldbuildingButtons.map((button) => {
-            return `
-            <a class="button" href="${button.url}" target="${button.target}">
-                <span>${button.text}</span>
-            </a>
-            `;
-            }).join("");
+                env.worldbuildingButtons.map((button) => {
+                    return `
+                        <a class="button" href="${button.url}" target="${button.target}">
+                            <span>${button.text}</span>
+                        </a>
+                    `;
+                }).join("");
             }}
         </div>
     </div>
@@ -90,33 +89,33 @@
     <div class="container is-max-desktop has-text-centered">
         <div class="columns is-desktop is-8">
             {{
-            env.kinds.map((kind, index) => {
-            return `
-            <div class="column">
-                <div id="tcg-card-holder-${kind.cardID}" class="tcg-card-holder">
-                    <div id="tcg-card-${kind.cardID}" class="tcg-card tcg-card-presented tcg-card-presented-kinds"
-                        style="background-image: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/${kind.cardID}.jpg);"
-                        data-tilt data-tilt-reverse="true" data-tilt-glare="true" data-tilt-max-glare="0.5"
-                        data-tilt-startX="0" data-tilt-startY="-10" data-tilt-reset-to-start="true"
-                        onclick="openCard('${kind.cardID}')">
-                    </div>
-                </div>
-                <h2 class="subtitle">${kind.title}</h2>
-                <p>${kind.description}</p>
-            </div>
-            `;
-            }).join("");
+                env.kinds.map((kind, index) => {
+                    return `
+                        <div class="column">
+                            <div id="tcg-card-holder-${kind.cardID}" class="tcg-card-holder">
+                                <div id="tcg-card-${kind.cardID}" class="tcg-card tcg-card-presented tcg-card-presented-kinds"
+                                    style="background-image: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/public/${kind.cardID}.jpg);"
+                                    data-tilt data-tilt-reverse="true" data-tilt-glare="true" data-tilt-max-glare="0.5"
+                                    data-tilt-startX="0" data-tilt-startY="-10" data-tilt-reset-to-start="true"
+                                    onclick="openCard('${kind.cardID}')">
+                                </div>
+                            </div>
+                            <h2 class="subtitle">${kind.title}</h2>
+                            <p>${kind.description}</p>
+                        </div>
+                    `;
+                }).join("");
             }}
         </div>
         <div class="buttons is-centered safe-borders">
             {{
-            env.kindsButtons.map((button) => {
-            return `
-            <a class="button" href="${button.url}" target="${button.target}">
-                <span>${button.text}</span>
-            </a>
-            `;
-            }).join("");
+                env.kindsButtons.map((button) => {
+                    return `
+                        <a class="button" href="${button.url}" target="${button.target}">
+                            <span>${button.text}</span>
+                        </a>
+                    `;
+                }).join("");
             }}
         </div>
     </div>
@@ -136,16 +135,16 @@
         </p>
         <div class="buttons is-centered">
             {{
-            env.playOnlineButtons.map((button) => {
-            return `
-            <a class="button" href="${button.url}" target="${button.target}">
-                <span class="icon">
-                    <img src="${button.icon}" alt="${button.text}" />
-                </span>
-                <span>${button.text}</span>
-            </a>
-            `;
-            }).join("");
+                env.playOnlineButtons.map((button) => {
+                    return `
+                        <a class="button" href="${button.url}" target="${button.target}">
+                            <span class="icon">
+                                <img src="${button.icon}" alt="${button.text}" />
+                            </span>
+                            <span>${button.text}</span>
+                        </a>
+                    `;
+                }).join("");
             }}
         </div>
     </div>
@@ -168,16 +167,16 @@
             </p>
             <div class="buttons is-centered">
                 {{
-                env.characterCreationButtons.map((button) => {
-                return `
-                <a class="button" href="${button.url}" target="${button.target}">
-                    <span class="icon">
-                        <img src="${button.icon}" alt="${button.text}" />
-                    </span>
-                    <span>${button.text}</span>
-                </a>
-                `;
-                }).join("");
+                    env.characterCreationButtons.map((button) => {
+                        return `
+                        <a class="button" href="${button.url}" target="${button.target}">
+                            <span class="icon">
+                                <img src="${button.icon}" alt="${button.text}" />
+                            </span>
+                            <span>${button.text}</span>
+                        </a>
+                    `;
+                    }).join("");
                 }}
             </div>
         </div>
@@ -201,16 +200,16 @@
         </p>
         <div class="buttons is-centered">
             {{
-            env.joinButtons.map((button) => {
-            return `
-            <a class="button" href="${button.url}" target="${button.target}">
-                <span class="icon">
-                    <img src="${button.icon}" alt="${button.text}" />
-                </span>
-                <span>${button.text}</span>
-            </a>
-            `;
-            }).join("");
+                env.joinButtons.map((button) => {
+                return `
+                    <a class="button" href="${button.url}" target="${button.target}">
+                        <span class="icon">
+                            <img src="${button.icon}" alt="${button.text}" />
+                        </span>
+                        <span>${button.text}</span>
+                    </a>
+                `;
+                }).join("");
             }}
         </div>
     </div>
@@ -223,18 +222,18 @@
         </h2>
         <div class="faq safe-borders">
             {{
-            env.faqItems.map((item) => {
-            return `
-            <details>
-                <summary>
-                    ${item.question}
-                </summary>
-                <p>
-                    ${item.answer}
-                </p>
-            </details>
-            `;
-            }).join("");
+                env.faqItems.map((item) => {
+                return `
+                    <details>
+                        <summary>
+                            ${item.question}
+                        </summary>
+                        <p>
+                            ${item.answer}
+                        </p>
+                    </details>
+                `;
+                }).join("");
             }}
         </div>
     </div>

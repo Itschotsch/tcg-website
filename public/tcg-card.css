@@ -42,7 +42,7 @@
     box-shadow: 0 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
 
     /* Image */
-    background: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/486.jpg) no-repeat center center;
+    background: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/public/486.jpg) no-repeat center center;
     background-size: 100% 100%;
     background-size: calc(100% + calc(var(--crop-size-x) * 2)) calc(100% + calc(var(--crop-size-y) * 2));
 

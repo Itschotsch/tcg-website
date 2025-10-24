@@ -10,7 +10,7 @@ export namespace Website {
             let cardlistFile: string = "cardlist-" + cardlistName;
 
             template = await Preprocessor.preprocessTemplate(template, {
-                "websiteName": "Ark Chronika",
+                "websiteName": "Anor – Kartenliste",
                 "pageBody": await Preprocessor.loadTemplate("page-cardlist"),
                 "catchphrase": "Durchstöbere die Karten",
                 "cardlistName": cardlistName.charAt(0).toUpperCase() + cardlistName.slice(1),

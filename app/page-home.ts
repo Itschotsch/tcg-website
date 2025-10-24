@@ -7,7 +7,7 @@ export namespace Website {
         app.get('/', async (req, res) => {
             let template: string = await Preprocessor.loadTemplate("page-scaffold");
             template = await Preprocessor.preprocessTemplate(template, {
-                "websiteName": "LARP TCG",
+                "websiteName": "Anor",
                 "pageBody": await Preprocessor.loadTemplate("page-home"),
                 "previewCardIDs": [
                     470,
@@ -104,7 +104,7 @@ export namespace Website {
                 "faqTitle": "FAQ",
                 "faqItems": [
                     {
-                        "question": "Was ist dieses TCG?",
+                        "question": "Was ist Anor?",
                         "answer": "Es ist ein Sammelkartenspiel, das auf Charakteren und Geschichten aus dem Live Action Roleplay basiert. Es vereint taktisches Kartenspiel mit der LARP-Community."
                     },
                     {

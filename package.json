@@ -1,7 +1,7 @@
 {
   "name": "tcg-website",
   "version": "1.0.0",
-  "description": "Aetherlab's LARP TCG Website",
+  "description": "Aetherlab's Anor Website",
   "main": "app/app.ts",
   "scripts": {
     "dev": "npx nodemon app/app.ts",

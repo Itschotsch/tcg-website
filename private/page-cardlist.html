@@ -13,12 +13,12 @@
             {{
                 env.cardData
                 // Sort by ID
-                .sort(function(a, b){ return Number(a["ID"]) - Number(b["ID"]); })
+                .sort(function(a, b){ return Number(a["id"]) - Number(b["id"]); })
                 // Map to HTML
                 .map((card, index) => {
                     // Aetherlab specific
-                    let id = card["ID"];
-                    let title = card["Name"];
+                    let id = card["id"];
+                    let title = card["name"];
                     return `
                         <div class="cell">
                             <div class="tcg-card tcg-cardlist-card-image" style="background-image: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/public/${id}.jpg);" onclick="openCard(${id})"></div>

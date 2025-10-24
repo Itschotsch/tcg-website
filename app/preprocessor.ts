@@ -153,7 +153,7 @@ export namespace Website {
                         //     "CostUnshaped",
                         //     "ElementalAmount"
                         // ],
-                    }, (err, data: { [key: string]: string }[]) => {
+                    }, (err: Error, data: { [key: string]: string }[]) => {
                         if (err) {
                             reject(err);
                         } else {
@@ -164,37 +164,57 @@ export namespace Website {
         });
     }
 
-    export async function loadCommasSeparatedList(name: string): Promise<string[]> {
-        const fileName = path.join(process.cwd(), `private/${name}.txt`);
-        return new Promise((resolve, reject) => {
-            fs.readFile(fileName, "utf-8", (err, data) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve(data.split(",").map(x => x.trim()).filter(x => x.length > 0));
-                }
-            });
-        });
-    }
-
-    export async function commasSeparatedListExists(name: string): Promise<boolean> {
-        const fileName = path.join(process.cwd(), `private/${name}.txt`);
-        return new Promise((resolve, reject) => {
-            fs.access(fileName, fs.constants.F_OK, (err) => {
-                if (err) {
-                    resolve(false);
-                } else {
-                    resolve(true);
-                }
-            });
-        });
-    }
-
-    // export function preprocessNotionCardsCSV(cardData: { [key: string]: string }): { [key: string]: string } {
-    //     let newCardData = {};
-    //     Object.assign(newCardData, cardData);
-
-    //     return newCardData;
+    // export async function loadCommasSeparatedList(name: string): Promise<string[]> {
+    //     const fileName = path.join(process.cwd(), `private/${name}.txt`);
+    //     return new Promise((resolve, reject) => {
+    //         fs.readFile(fileName, "utf-8", (err, data) => {
+    //             if (err) {
+    //                 reject(err);
+    //             } else {
+    //                 resolve(data.split(",").map(x => x.trim()).filter(x => x.length > 0));
+    //             }
+    //         });
+    //     });
     // }
+
+    // {
+    //     "3": {
+    //         "id": "3",
+    //         "name": "Weißer Greif",
+    //         "type": "Charakter",
+    //         "Element": "Aeris",
+    //         "cost": 6,
+    //         "face": {
+    //             "front": {
+    //                 "name": "Weißer Greif",
+    //                 "type": "Charakter",
+    //                 "cost": 6,
+    //                 "image": "https://itschotsch.github.io/tcg-maker/tcg-arena/images/public/3.jpg"
+    //             }
+    //         }
+    //     },
+    //     ...
+    export async function loadCardList(url: string = "https://itschotsch.github.io/tcg-maker/tcg-arena/card-list-public.json"): Promise<{ [key: string]: any }> {
+        return new Promise((resolve, reject) => {
+            https.get(url, (response: any) => {
+                let data = '';
+                response.on('data', (chunk: string) => {
+                    data += chunk;
+                });
+                response.on('end', () => {
+                    try {
+                        const cardList = JSON.parse(data);
+                        resolve(cardList);
+                    } catch (error) {
+                        Logger.err("Error parsing card list JSON:", error);
+                        reject(error);
+                    }
+                });
+            }).on('error', (err: any) => {
+                Logger.err("Error while loading card list:", err);
+                reject(err);
+            });
+        });
+    }
 
 }

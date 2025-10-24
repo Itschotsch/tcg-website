@@ -4,16 +4,10 @@ import { Website as Preprocessor } from './preprocessor';
 export namespace Website {
 
     export function register(app: express.Express) {
-        app.get('/cards', async (req, res) => {
+        app.get('/cards', async (req: express.Request, res: express.Response) => {
             let template: string = await Preprocessor.loadTemplate("page-scaffold");
             let cardlistName: string = (req.query.cardlist || "playtest").toString();
             let cardlistFile: string = "cardlist-" + cardlistName;
-
-            // Check whether cardlist actually exists
-            if (!await Preprocessor.commasSeparatedListExists(cardlistFile)) {
-                res.status(404).send("Cardlist not found.");
-                return;
-            }
 
             template = await Preprocessor.preprocessTemplate(template, {
                 "websiteName": "Ark Chronika",
@@ -22,7 +16,7 @@ export namespace Website {
                 "cardlistName": cardlistName.charAt(0).toUpperCase() + cardlistName.slice(1),
                 "cardData": maskCardData(
                     await Preprocessor.loadCSV(),
-                    (await Preprocessor.loadCommasSeparatedList(cardlistFile)).sort()
+                    (await Preprocessor.loadCardList("https://itschotsch.github.io/tcg-maker/tcg-arena/card-list-public.json"))
                 ),
                 "footerText": `© ${new Date().getFullYear()} Aetherlab`,
                 "loadTemplate": Preprocessor.loadTemplate,
@@ -31,11 +25,29 @@ export namespace Website {
         });
     }
 
-    function maskCardData(cardData: { [key: string]: string }[], cardIDs: string[]): { [key: string]: string }[] {
+    // {
+    //     "3": {
+    //         "id": "3",
+    //         "name": "Weißer Greif",
+    //         "type": "Charakter",
+    //         "Element": "Aeris",
+    //         "cost": 6,
+    //         "face": {
+    //             "front": {
+    //                 "name": "Weißer Greif",
+    //                 "type": "Charakter",
+    //                 "cost": 6,
+    //                 "image": "https://itschotsch.github.io/tcg-maker/tcg-arena/images/public/3.jpg"
+    //             }
+    //         }
+    //     },
+    //     ...
+    function maskCardData(cardData: { [key: string]: string }[], cards: { [key: string]: any }): { [key: string]: string }[] {
+        let cardDataIDs: string[] = cardData.map(x => x.ID);
         let newCardData: { [key: string]: string }[] = [];
-        for (let card of cardData) {
-            if (cardIDs.includes(card.ID)) {
-                newCardData.push(card);
+        for (let cardID of cards.keys()) {
+            if (cardID in cardDataIDs) {
+                newCardData.push(cards[cardID]);
             }
         }
         return newCardData;

@@ -103,7 +103,8 @@ export namespace Website {
                 ],
                 "faqTitle": "FAQ",
                 "faqItems": [
-                                       "question": "Was ist Anor?",
+                    {
+                    "question": "Was ist Anor?",
                     "answer": "Anor ist ein LARP-Sammelkartenspiel, das Geschichten, Charaktere und Ereignisse aus unterschiedlichen LARP-Kampagnen und Settings in Kartenform festhält. Jede Karte repräsentiert Charaktere, Lore oder Ereignisse aus verschiedenen LARP-Settings."
                     },
                     {
@@ -155,6 +156,7 @@ export namespace Website {
     }
 
 }
+
 
 
 

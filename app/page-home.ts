@@ -103,29 +103,48 @@ export namespace Website {
                 ],
                 "faqTitle": "FAQ",
                 "faqItems": [
-                    {
-                        "question": "Was ist Anor?",
-                        "answer": "Es ist ein Sammelkartenspiel, das auf Charakteren und Geschichten aus dem Live Action Roleplay basiert. Es vereint taktisches Kartenspiel mit der LARP-Community."
+                                       "question": "Was ist Anor?",
+                    "answer": "Anor ist ein LARP-Sammelkartenspiel, das Geschichten, Charaktere und Ereignisse aus unterschiedlichen LARP-Kampagnen und Settings in Kartenform festhält. Jede Karte repräsentiert Charaktere, Lore oder Ereignisse aus verschiedenen LARP-Settings."
                     },
                     {
-                        "question": "Wie kann ich mitspielen?",
-                        "answer": "Du kannst direkt im Browser auf TCG-Arena spielen – kostenlos und ohne Anmeldung. Außerdem kannst Du Dir das Regelwerk durchlesen und jederzeit gerne Feedback geben."
+                    "question": "Für wen ist Anor gedacht?",
+                    "answer": "Anor richtet sich an LARP-Spieler, die ihre Charaktere und Geschichten in einem Sammelkartenspiel verewigen möchten, sowie an TCG-Fans, die ein einzigartiges Kartenspiel mit Community-basierten Inhalten suchen."
                     },
                     {
-                        "question": "Kann ich eigene Charaktere ins Spiel bringen?",
-                        "answer": "Ja! Reiche Deinen LARP-Charakter bei uns ein, und wir arbeiten gemeinsam daran, ihn als individuelle Spielkarte umzusetzen."
+                    "question": "Kann ich eigene Charaktere ins Spiel bringen?",
+                    "answer": "Ja! Reiche Deinen LARP-Charakter bei uns ein, und wir arbeiten gemeinsam daran, ihn als individuelle Spielkarte umzusetzen."
                     },
                     {
-                        "question": "Kostet das Spiel etwas?",
-                        "answer": "Nein, das Spiel ist aktuell kostenlos verfügbar. Wir entwickeln es gemeinsam mit der Community weiter und freuen uns über jede Teilnahme."
+                    "question": "Wann ist Anor erhältlich?",
+                    "answer": "Im kommenden Jahr wird Anor IT sammelbar und OT erhältlich sein. Ihr könnt das Spiel aber jetzt schon online ausprobieren – kostenlos und ohne Anmeldung."
                     },
                     {
-                        "question": "Wie funktioniert das mit den verschiedenen Welten?",
-                        "answer": "Unser Spielsystem ist so entworfen, dass Charaktere aus unterschiedlichen Settings miteinander kompatibel sind – unabhängig von Welt, Zeit oder Magiesystem."
+                    "question": "Kann ich Anor jetzt schon spielen?",
+                    "answer": "Ja! Ihr könnt Anor sofort online spielen – kostenlos und ganz ohne Anmeldung."
                     },
                     {
-                        "question": "Wie kann ich Teil des Entwicklerteams werden?",
-                        "answer": "Schließe Dich unserem Discord an und melde Dich bei uns! Egal ob Playtesting, Game Design, Balancing oder Art – wir freuen uns über jede Unterstützung."
+                    "question": "Kostet das Spiel etwas?",
+                    "answer": "Nein, Anor ist ein Non-Profit-Projekt und die Online-Version ist kostenlos verfügbar. Im kommenden Jahr wird eine gedruckte Version folgen. Etwaige Einnahmen dienen ausschließlich dazu, Drittkosten wie den Druck zu decken. Das Projekt lebt zu 100 % vom Community-Engagement."
+                    },
+                    {
+                    "question": "Was bedeutet IT sammelbar und OT erhältlich?",
+                    "answer": "IT (In Time) sammelbar bedeutet, dass ihr die Karten im LARP-Spiel sammeln könnt. OT (Off Time) erhältlich bedeutet, dass die Karten auch außerhalb des LARPs als physische Produkte verfügbar sein werden."
+                    },
+                    {
+                    "question": "Ist Anor ein kommerzielles Projekt?",
+                    "answer": "Nein, Anor ist ein Non-Profit-Projekt. Alle Einnahmen dienen ausschließlich dazu, Drittkosten wie den Druck der Karten zu decken. Das Projekt lebt zu 100 % vom Community-Engagement."
+                    },
+                    {
+                    "question": "Warum verwendet ihr KI-generierte Bilder?",
+                    "answer": "Da wir ein Non-Profit-Projekt sind, nutzen wir KI-Technologie, um trotz begrenztem Budget hochwertige Charakterbilder für unser Kartenspiel zu erstellen. So können wir eine professionelle visuelle Qualität erreichen und das Spiel für alle zugänglich halten."
+                    },
+                    {
+                    "question": "Wie entsteht das Artwork für die Charaktere?",
+                    "answer": "Jeder Charakter beginnt mit einem Foto, das dann mit verschiedenen KI-Tools bearbeitet wird. Anschließend verfeinern wir die Bilder in Photoshop, um den finalen Look zu erreichen und sicherzustellen, dass alle Charaktere perfekt zu unserer Spielwelt passen."
+                    },
+                    {
+                    "question": "Wie kann ich mich am Projekt beteiligen?",
+                    "answer": "Das Projekt lebt vom Community-Engagement. Ihr könnt eure Charaktere einreichen, das Spiel online testen, Feedback geben und die Community unterstützen."
                     }
                 ],
                 "footerText": `© ${new Date().getFullYear()} Verein Aetherlab`,
@@ -136,5 +155,6 @@ export namespace Website {
     }
 
 }
+
 
 

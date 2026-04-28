@@ -1,0 +1,12 @@
+.cardlist-card-details {
+    margin: 0.5rem;
+}
+
+.cardlist-card-id {
+    opacity: 0.75;
+}
+
+.cardlist-card-title {
+    font-weight: bold;
+    hyphens: auto;
+}

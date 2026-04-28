@@ -4,6 +4,9 @@
             {{env.catchphrase}}
         </h3>
     </div>
+    <div class="container mb-5">
+        <a href="/">{{env.returnToMainPage}}</a>
+    </div>
     <div class="container">
         <h2 class="title">
             {{env.cardlistName}}
@@ -19,10 +22,11 @@
                     // Aetherlab specific
                     let id = card["id"];
                     let title = card["name"];
+                    let imageUrl = card["face"]["front"]["image"];
                     return `
                         <div class="cell">
-                            <div class="tcg-card tcg-cardlist-card-image" style="background-image: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/public/${id}.jpg);" onclick="openCard(${id})"></div>
-                            <!-- #${id} ⋅ ${title} -->
+                            <div class="tcg-card tcg-cardlist-card-image" style="background-image: url(${imageUrl});" onclick="openCard('${id}', '${imageUrl}')"></div>
+                            <p class="cardlist-card-details"><span class="cardlist-card-id">${id}</span> ⋅ <span class="cardlist-card-title">${title}</span></p>
                         </div>
                     `;
                 }).join("");

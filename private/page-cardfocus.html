@@ -2,13 +2,16 @@
     integrity="sha512-aNMyYYxdIxIaot0Y1/PLuEu3eipGCmsEUBrUq+7aVyPGMFH8z0eTP0tkqAvv34fzN6z+201d3T8HPb1svWSKHQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    function openCard(id) {
+    function openCard(id, imageUrl) {
         if (document.querySelector("#tcg-card-focus").hasAttribute("transitioning")) {
             return;
         }
 
         // Set background:
-        document.querySelector(".tcg-card-focus-card").style.backgroundImage = `url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/public/${id}.jpg)`;
+        if (!imageUrl) {
+            imageUrl = `https://itschotsch.github.io/tcg-maker/tcg-arena/images/public/${id}.jpg`;
+        }
+        document.querySelector(".tcg-card-focus-card").style.backgroundImage = `url(${imageUrl})`;
 
         // Show tcg-card-focus:
         let timeline = anime.timeline();

@@ -1,0 +1,149 @@
+/* Starter Decks page: warm gold/cream text palette, matching the painterly
+   parchment backgrounds used on this page. See agent-assets/STYLE_GUIDE.md.
+   Bulma recomputes .title/.subtitle color from its own HSL variables (not
+   --bulma-title-color directly), and body text color is resolved once on
+   <body> rather than re-read per descendant — so both need explicit,
+   higher-specificity color rules rather than a custom-property override. */
+.page-starterdecks {
+    --bulma-title-color: #ffe1a1;
+    --bulma-subtitle-color: #ffe1a1;
+    --bulma-body-color: #ecdaccee;
+    color: #ecdaccee;
+}
+
+.page-starterdecks .title,
+.page-starterdecks .subtitle {
+    color: #ffe1a1;
+}
+
+.page-starterdecks .button {
+    color: #ffe1a1;
+    border-color: #ffe1a1;
+}
+
+.starterdeck-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7rem;
+}
+
+.starterdeck-row {
+    display: flex;
+    align-items: center;
+    gap: 3.5rem;
+}
+
+.starterdeck-row.is-reverse {
+    flex-direction: row-reverse;
+}
+
+.starterdeck-row-image {
+    flex: 0 0 auto;
+    width: clamp(12rem, 18vw, 17rem);
+}
+
+.starterdeck-row-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0.5rem 1.5rem rgba(0, 0, 0, 0.5));
+    transition: transform 0.25s ease;
+}
+
+.starterdeck-row-image img:hover {
+    transform: translateY(-0.25rem);
+}
+
+.starterdeck-row-content {
+    flex: 1 1 0;
+    max-width: 30rem;
+    text-align: left;
+}
+
+.starterdeck-eyebrow {
+    display: block;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    color: var(--bulma-title-color);
+    opacity: 0.85;
+    margin-bottom: 0.25rem;
+}
+
+.starterdeck-title {
+    font-size: 2.5rem;
+    margin: 0 0 1rem;
+}
+
+.starterdeck-text {
+    margin: 0;
+}
+
+.starterdeck-price {
+    display: block;
+    margin-top: 1.25rem;
+    font-weight: bold;
+    color: var(--bulma-title-color);
+}
+
+.starterdecks-bundle-content {
+    max-width: 34rem;
+}
+
+.starterdeck-highlight {
+    font-family: "Gold and After", serif;
+    font-weight: normal;
+    text-shadow: 0 0.05em 0 black;
+    color: var(--bulma-title-color);
+    font-size: 1.35rem;
+    margin: 1.5rem 0;
+}
+
+.starterdecks-merchant {
+    position: absolute;
+    right: 3rem;
+    bottom: 0;
+    max-height: 26rem;
+    width: auto;
+    pointer-events: none;
+}
+
+/* Responsive behaviour for phones. */
+@media only screen and (max-width: 768px) {
+    .starterdeck-list {
+        gap: 4rem;
+    }
+
+    .starterdeck-row,
+    .starterdeck-row.is-reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .starterdeck-row-image {
+        width: 12rem;
+    }
+
+    .starterdeck-row-content {
+        text-align: center;
+        max-width: 26rem;
+    }
+
+    .starterdeck-title {
+        font-size: 1.85rem;
+    }
+
+    .starterdecks-bundle-content {
+        max-width: none;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .starterdecks-bundle-content .buttons {
+        justify-content: center;
+    }
+
+    .starterdecks-merchant {
+        display: none;
+    }
+}

@@ -17,7 +17,7 @@ export namespace Website {
                     485
                 ],
                 "catchphrase": "Ein Sammelkartenspiel",
-                "summaryText": "Tauche ein in ein einzigartiges Sammelkartenspiel, das die unvergesslichsten Momente Deiner LARP-Erlebnisse zum Leben erweckt. Werde Teil einer der Community und gestalte die Welt des Spiels aktiv mit.",
+                "summaryText": "Tauche ein in ein einzigartiges Sammelkartenspiel, das die unvergesslichsten Momente Deiner LARP-Erlebnisse zum Leben erweckt. Werde Teil der Gemeinschaft und gestalte die Welt des Spiels aktiv mit.",
                 "summaryButtons": [
                     {
                         "icon": "/public/assets/discord-logo.svg",
@@ -76,7 +76,7 @@ export namespace Website {
                     },
                 ],
                 "playOnlineTitle": "Spiele online,<br/>direkt im Browser",
-                "playOnlineText": "Das Spiel befindet sich aktuell in der Betaphase. Du kannst es kostenlos und ohne Anmeldung direkt auf TCG-Arena testen. Wir freuen uns über jede Rückmeldung aus der Community, um das System weiterzuentwickeln.",
+                "playOnlineText": "Das Spiel wird laufend weiterentwickelt. Du kannst es kostenlos und ohne Anmeldung direkt auf TCG-Arena testen. Wir freuen uns über jede Rückmeldung aus der Community, um das System weiterzuentwickeln.",
                 "playOnlineButtons": [
                     {
                         "icon": "/public/assets/tcg-arena-logo.svg",
@@ -92,7 +92,7 @@ export namespace Website {
                     },
                 ],
                 "characterCreationTitle": "Dein Charakter als Spielkarte",
-                "characterCreationText": "Reiche Deinen Charakter ein und wir werden sie als Karte im Spiel integrieren.",
+                "characterCreationText": "Reiche Deinen Charakter ein und wir werden ihn als Karte im Spiel integrieren.",
                 "characterCreationButtons": [
                     {
                         "icon": "/public/assets/notion-logo.svg",
@@ -102,7 +102,7 @@ export namespace Website {
                     },
                 ],
                 "joinTitle": "Werde Teil des Teams",
-                "joinText": "Dieses Sammelkartenspiel entsteht aus der Community heraus – und Du kannst ein Teil davon sein. Ob mit Playtesting, Kartendesign, Artwork oder einfach guten Ideen: Wir freuen uns über alle, die mithelfen wollen, das Spiel gemeinsam weiterzuentwickeln.",
+                "joinText": "Dieses Sammelkartenspiel entsteht aus der Community heraus – und Du kannst ein Teil davon sein. Ob mit Testspielen, Kartenentwürfen, Bildkreation oder einfach guten Ideen: Wir freuen uns über alle, die mithelfen wollen, das Spiel gemeinsam weiterzuentwickeln.",
                 "joinButtons": [
                     {
                         "icon": "/public/assets/discord-logo.svg",
@@ -111,7 +111,7 @@ export namespace Website {
                         "target": "_blank",
                     },
                 ],
-                "faqTitle": "FAQ",
+                "faqTitle": "Meist gefragt",
                 "faqItems": [
                     {
                         "question": "Was ist Anor?",

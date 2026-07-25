@@ -10,11 +10,11 @@ export namespace Website {
                 "websiteName": "Anor",
                 "pageBody": await Preprocessor.loadTemplate("page-home"),
                 "previewCardIDs": [
-                    470,
-                    407,
-                    188,
-                    406,
-                    485
+                    479,
+                    489,
+                    338,
+                    486,
+                    621
                 ],
                 "catchphrase": "Ein Sammelkartenspiel",
                 "summaryText": "Tauche ein in ein einzigartiges Sammelkartenspiel, das die unvergesslichsten Momente Deiner LARP-Erlebnisse zum Leben erweckt. Werde Teil der Gemeinschaft und gestalte die Welt des Spiels aktiv mit.",
@@ -55,17 +55,17 @@ export namespace Website {
                     {
                         "title": "Charakter",
                         "description": "Charaktere sind das Herz Deiner Strategie. Sie führen Angriffe aus, verteidigen Dein Spielfeld und bringen unterschiedlichste, individuelle Fähigkeiten mit.",
-                        "cardID": 484,
+                        "cardID": 540,
                     },
                     {
                         "title": "Ereignis",
                         "description": "Ereignisse sind mächtige Einmalaktionen, die sofort wirken. Sie verändern den Spielverlauf plötzlich, sei es zur Unterstützung Deines Plans oder um dem Gegner in die Quere zu kommen.",
-                        "cardID": 460,
+                        "cardID": 185,
                     },
                     {
                         "title": "Manifestation",
                         "description": "Manifestationen bringen dauerhafte Effekte ins Spiel. Solange sie bestehen, beeinflussen sie das Geschehen. Doch auch sie können vom Gegner angegriffen und zerstört werden.",
-                        "cardID": 197,
+                        "cardID": 461,
                     },
                 ],
                 "kindsButtons": [

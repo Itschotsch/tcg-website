@@ -1,6 +1,7 @@
+<div class="page-home">
 <section class="section"> <!-- map-background -->
     <div class="background-flavour-image fadeout-bottom"
-        style="background-image: url(/public/assets/summary-background.webp); background-position: center top;"></div>
+        style="background-image: url(/public/assets/elemental-map-background.webp); background-position: center top;"></div>
     <div class="hero-body">
         <div class="container has-text-centered tcg-card-collection-display">
             <div class="tcg-card-collection-holder">
@@ -32,12 +33,9 @@
         </div>
     </div>
     <div class="container has-text-centered hero-title safe-borders">
-        <h1 class="title">
-            {{env.websiteName}}
+        <h1 class="hero-logo-heading">
+            <img class="hero-logo" src="/public/assets/anor-logo.webp" alt="{{env.websiteName}}" />
         </h1>
-        <h3 class="subtitle">
-            {{env.catchphrase}}
-        </h3>
     </div>
     <div class="container has-text-centered is-max-mobile safe-borders">
         <p>
@@ -81,6 +79,33 @@
                     `;
                 }).join("");
             }}
+        </div>
+    </div>
+</section>
+<hr />
+<section class="section starterdeck-teaser">
+    <div class="container has-text-centered is-max-desktop safe-borders">
+        <h2 class="title">
+            {{env.starterDecksTitle}}
+        </h2>
+        <p class="is-max-mobile">
+            {{env.starterDecksText}}
+        </p>
+        <div class="buttons is-centered">
+            <a class="button" href="{{env.starterDecksButtonUrl}}" target="{{env.starterDecksButtonTarget}}">
+                <span>{{env.starterDecksButtonText}}</span>
+            </a>
+        </div>
+        <div class="starterdeck-teaser-fan">
+            <div class="starterdeck-teaser-pack starterdeck-teaser-pack--left">
+                <img src="/public/assets/starterdeck-pack-placeholder.webp" alt="" loading="lazy" />
+            </div>
+            <div class="starterdeck-teaser-pack starterdeck-teaser-pack--center">
+                <img src="/public/assets/starterdeck-pack-placeholder.webp" alt="" loading="lazy" />
+            </div>
+            <div class="starterdeck-teaser-pack starterdeck-teaser-pack--right">
+                <img src="/public/assets/starterdeck-pack-placeholder.webp" alt="" loading="lazy" />
+            </div>
         </div>
     </div>
 </section>
@@ -249,6 +274,7 @@
         </p>
     </div>
 </footer>
+</div>
 <div id="tcg-card-focus" onclick="closeCard()">
     <div class="tcg-card-holder tcg-card-focus-holder">
         <div class="tcg-card tcg-card-focus-card" data-tilt data-tilt-reverse="true" data-tilt-glare="true"

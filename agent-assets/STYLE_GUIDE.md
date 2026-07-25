@@ -25,8 +25,8 @@ table as authoritative; keep the CSS in sync with it.
 | Token | Value | Usage |
 |---|---|---|
 | Background (page) | `rgb(2.745% 2.745% 3.137%)` ≈ `#070708` | `--bulma-body-background-color`, `--bulma-scheme-main`. Also the color used inside every fade-out gradient — **if you change it, change it everywhere**. |
-| Text — headings | `#ebecf0` | `--bulma-title-color`, `--bulma-subtitle-color` |
-| Text — body | `#ebecf0ee` (≈93% opacity) | `--bulma-body-color` |
+| Text — headings | `#ebecf0` (base) / `#ffe1a1` on `.page-home` &amp; `.page-starterdecks` | `--bulma-title-color`, `--bulma-subtitle-color` — see §4 |
+| Text — body | `#ebecf0ee` (base) / `#ecdaccee` on `.page-home` &amp; `.page-starterdecks` | `--bulma-body-color` — see §4 |
 | Primary (accent) | `hsl(215.2deg 71% 62%)` — a cool blue | `--bulma-primary-*`. Used sparingly for interactive accent. |
 | Overlay / scrim | `rgba(0,0,0,0.5)` + `backdrop-filter: blur(10px)` | Card focus modal |
 | Card shadow | `0 0 0.5rem 0.5rem rgba(0,0,0,0.2)` | `.tcg-card` |
@@ -188,19 +188,22 @@ character creation, join) → FAQ → footer**. Each section is centered, width-
 
 ## 4. Page Variants
 
-Sub-pages may deliberately depart from two home-page defaults when a design reference calls for
-it — document the reasoning here instead of reinventing it per page:
-
-- **Palette variant (warm gold/cream).** Product/marketing pages with painterly parchment
-  backgrounds (e.g. Starter Decks) use a warmer text palette than the home page's cool white:
-  title/subtitle `#ffe1a1`, body `#ecdaccee`. **Important:** Bulma recomputes `.title`/`.subtitle`
-  color from its own internal HSL variables rather than simply reading `--bulma-title-color`, and
-  `body`'s text color is resolved once on `<body>` rather than re-read per descendant — so a
-  page-scoped override must set **both** the CSS custom properties (for your own CSS that
-  consumes them via `var()`, e.g. `.button` borders) **and** explicit `color` rules on
-  `.title`/`.subtitle` and the page wrapper itself. See
-  [`public/tcg-starterdecks.css`](../public/tcg-starterdecks.css) for the working pattern — copy
-  it rather than re-deriving the fix.
+- **Palette variant (warm gold/cream) — now the site-wide default for marketing pages.**
+  Both the home page and the Starter Decks page use a warmer text palette than the raw Bulma
+  defaults in §1: title/subtitle `#ffe1a1`, body `#ecdaccee`. Each page opts in via its own
+  wrapper class (`.page-home`, `.page-starterdecks`) rather than changing the global tokens in
+  `tcg-website.css`, so a future utility-style page (e.g. the card list) can still fall back to
+  the plain `#ebecf0` tokens if it doesn't wrap itself in one of these classes. **When adding a
+  new page that should share this look, wrap its content in a `.page-<name>` div and copy the
+  override block, don't touch the global `:root` tokens.** **Important:** Bulma recomputes
+  `.title`/`.subtitle` color from its own internal HSL variables rather than simply reading
+  `--bulma-title-color`, and `body`'s text color is resolved once on `<body>` rather than
+  re-read per descendant — so a page-scoped override must set **both** the CSS custom
+  properties (for your own CSS that consumes them via `var()`, e.g. `.button` borders) **and**
+  explicit `color` rules on `.title`/`.subtitle` and the page wrapper itself. See
+  [`public/tcg-home.css`](../public/tcg-home.css) (`.page-home`) and
+  [`public/tcg-starterdecks.css`](../public/tcg-starterdecks.css) (`.page-starterdecks`) for the
+  working pattern — copy it rather than re-deriving the fix.
 - **No `hr` rhythm within a list block.** The `section` + `hr` rhythm is still the default between
   distinct thematic sections, but a dense data-driven list (e.g. repeating product rows) may use
   generous section/flex-gap spacing instead of dividers between its own items — reserve `hr` for
@@ -213,6 +216,34 @@ Canonical example: the Starter Decks page —
 alternating image/text row pattern (`.starterdeck-row` / `.is-reverse`) collapsing to a
 centered, stacked, image-first column on mobile (`≤768px`) — reuse this for any future
 alternating-row list rather than inventing a new one.
+
+- **Home hero uses the image logo, not text.** The hero `<h1>` renders
+  `/public/assets/anor-logo.webp` (a pre-cleaned, transparent cutout of the gold "Anor" wordmark)
+  instead of plain text, wrapped in a heading for SEO/semantics: `<h1 class="hero-logo-heading">`.
+  Never fall back to text there — if the logo asset changes, replace the file, don't reintroduce
+  a text title. Sizing lives in `.hero-logo` in [`public/tcg-home.css`](../public/tcg-home.css).
+- **Shared painterly backgrounds are named for the art, not the page.** The elemental-map
+  painting used behind both the home hero and the Starter Decks page lives once as
+  `public/assets/elemental-map-background.webp` — reference the same file rather than
+  duplicating it per page; name new shared background assets after their artwork, not their
+  first caller.
+- **Scattered "pack fan" teaser.** A lightweight 3-item variant of the card/pack fan idea: a
+  flexbox row (not absolute positioning) with alternating `rotate()` transforms and a taller
+  `margin-top` on the center item, sized with `clamp()`/`vw` so it scales fluidly down to mobile
+  without a layout switch. See `.starterdeck-teaser-fan` in
+  [`public/tcg-home.css`](../public/tcg-home.css) — prefer flexbox + `vw`-scaled sizing over
+  absolute-percentage positioning for any small, fixed-count decorative fan, since it degrades
+  far more predictably at narrow viewports.
+- **Linktree-style pages ("pill link" list).** The Share page (`/share`) is a single-column list
+  of full-width pill buttons — logo up top on the elemental-map background, each pill a rounded
+  (`border-radius: 999px`) anchor with the title on the left and a background image bleeding in
+  from the right, faded with a CSS `mask-image: linear-gradient(...)` (not a baked-in image
+  gradient) so any image drops in cleanly. See `.share-link` in
+  [`public/tcg-share.css`](../public/tcg-share.css). **The link list is config, not markup:** it
+  lives as a plain `{ title, link, image }[]` array (`shareLinks`) at the top of
+  [`app/page-share.ts`](../app/page-share.ts), above the route handler — edit that array to
+  add/remove/reorder links, never hand-edit the generated anchors in
+  [`private/page-share.html`](../private/page-share.html).
 
 ---
 
@@ -245,6 +276,8 @@ alternating-row list rather than inventing a new one.
 | Card list | [`public/tcg-cardlist.css`](../public/tcg-cardlist.css) |
 | FAQ accordion | [`public/tcg-faq.css`](../public/tcg-faq.css) |
 | Starter Decks page (gold palette + alternating rows) | [`public/tcg-starterdecks.css`](../public/tcg-starterdecks.css) |
+| Home hero logo + Starter Decks teaser fan | [`public/tcg-home.css`](../public/tcg-home.css) |
+| Share (linktree) page + link list config | [`public/tcg-share.css`](../public/tcg-share.css), [`app/page-share.ts`](../app/page-share.ts) |
 | Page shell (fonts + CSS links) | [`private/page-scaffold.html`](../private/page-scaffold.html) |
 | Canonical page example | [`private/page-home.html`](../private/page-home.html) |
 | Content/data model example | [`app/page-home.ts`](../app/page-home.ts) |

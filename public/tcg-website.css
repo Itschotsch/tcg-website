@@ -137,9 +137,9 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/public/assets/summary-background.webp');
+    background-image: url('/public/assets/hero-background.webp');
     background-size: cover;
-    background-position: center;
+    background-position: center bottom;
     background-repeat: no-repeat;
     z-index: 0;
 }

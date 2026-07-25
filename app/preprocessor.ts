@@ -12,27 +12,6 @@ export namespace Website {
     };
 
     export async function initialise(): Promise<void> {
-        const url = "https://itschotsch.github.io/tcg-maker/input/csv/Alle%20Karten%2070ddd0aaafb74f56b205e643b0901290_all.csv";
-        const fileName = path.join(process.cwd(), 'private/cardlist-all.csv');
-        return new Promise<void>((resolve, reject) => {
-            https.get(url, (response: any) => {
-                if (response.statusCode === 200) {
-                    const fileStream = fs.createWriteStream(fileName);
-                    response.pipe(fileStream);
-                    fileStream.on('finish', () => {
-                        fileStream.close();
-                        Logger.log("Downloaded latest card data.");
-                        resolve();
-                    });
-                } else {
-                    Logger.err(`Failed to download card data. Status code: ${response.statusCode}`);
-                    reject(new Error(`Failed to download card data. Status code: ${response.statusCode}`));
-                }
-            }).on('error', (err: any) => {
-                Logger.err("Error while downloading card data:", err);
-                reject(err);
-            });
-        });
     }
 
     export async function loadTemplate(name: string): Promise<string> {
@@ -116,84 +95,6 @@ export namespace Website {
         };
     }
 
-    // Aetherlab-specific
-
-    export async function loadCSV(): Promise<{ [key: string]: string }[]> {
-        // https://csv.js.org/parse/
-        const fileName = path.join(process.cwd(), 'private/cardlist-all.csv');
-        return new Promise((resolve, reject) => {
-            fs.createReadStream(fileName)
-                .pipe(csv.parse(
-                    {
-                        columns: true,
-                        bom: true,
-
-                        // Aetherlab specific columns from Notion:
-                        // ID,Name,Kartenart,Kartentext,Element,Kosten,⚔️,🛡️,⭕️,Kartentyp,Status,Created by,Kosten Terra,Kosten Aqua,Kosten Aeris,Kosten Ignis,Kosten Magica,Kosten Ungeprägt,Flavourtext,Artwork,Art Production,Glossar,Decklist
-                        // columns: [
-                        //     "ID",
-                        //     "Layout",
-                        //     "Title",
-                        //     "Subtitle",
-                        //     "Description",
-                        //     "Artwork",
-                        //     "EntityKind",
-                        //     "EntityType",
-                        //     "OffensiveStat",
-                        //     "DefensiveStat",
-                        //     "ShieldspellStat",
-                        //     "FlavourText",
-                        //     // "CostElement",
-                        //     // "CostAmount",
-                        //     "CostTerra",
-                        //     "CostAqua",
-                        //     "CostAeris",
-                        //     "CostIgnis",
-                        //     "CostMagica",
-                        //     "CostUnshaped",
-                        //     "ElementalAmount"
-                        // ],
-                    }, (err: Error, data: { [key: string]: string }[]) => {
-                        if (err) {
-                            reject(err);
-                        } else {
-                            resolve(data);
-                        }
-                    }
-                ));
-        });
-    }
-
-    // export async function loadCommasSeparatedList(name: string): Promise<string[]> {
-    //     const fileName = path.join(process.cwd(), `private/${name}.txt`);
-    //     return new Promise((resolve, reject) => {
-    //         fs.readFile(fileName, "utf-8", (err, data) => {
-    //             if (err) {
-    //                 reject(err);
-    //             } else {
-    //                 resolve(data.split(",").map(x => x.trim()).filter(x => x.length > 0));
-    //             }
-    //         });
-    //     });
-    // }
-
-    // {
-    //     "3": {
-    //         "id": "3",
-    //         "name": "Weißer Greif",
-    //         "type": "Charakter",
-    //         "Element": "Aeris",
-    //         "cost": 6,
-    //         "face": {
-    //             "front": {
-    //                 "name": "Weißer Greif",
-    //                 "type": "Charakter",
-    //                 "cost": 6,
-    //                 "image": "https://itschotsch.github.io/tcg-maker/tcg-arena/images/public/3.jpg"
-    //             }
-    //         }
-    //     },
-    //     ...
     export async function loadCardList(url: string = "https://itschotsch.github.io/tcg-maker/tcg-arena/card-list-public.json"): Promise<{ [key: string]: any }> {
         return new Promise((resolve, reject) => {
             https.get(url, (response: any) => {

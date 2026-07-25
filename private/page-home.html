@@ -1,6 +1,7 @@
 <section class="section"> <!-- map-background -->
     <div class="background-flavour-image fadeout-bottom"
-        style="background-image: url(/public/assets/summary-background.webp); background-position: center top;"></div>
+        style="background-image: url(/public/assets/hero-background.webp); background-position: center center; opacity: 0.5;">
+    </div>
     <div class="hero-body">
         <div class="container has-text-centered tcg-card-collection-display">
             <div class="tcg-card-collection-holder">
@@ -18,7 +19,7 @@
                             <div id="tcg-card-holder-${id}" class="tcg-card-holder ${hideOnMobile}"
                                 style="${styleZIndex}; ${styleTransform};">
                                 <div id="tcg-card-${id}" class="tcg-card tcg-card-presented tcg-card-presented-summary"
-                                    style="background-image: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/public/${id}.jpg);"
+                                    style="background-image: url(https://itschotsch.github.io/anor/export/dev/jpg/${id}.jpg);"
                                     data-tilt data-tilt-reverse="true" data-tilt-glare="true" data-tilt-max-glare="0.5"
                                     data-tilt-startX="0" data-tilt-startY="-10" data-tilt-reset-to-start="true"
                                     onclick="openCard('${id}')">
@@ -32,7 +33,7 @@
         </div>
     </div>
     <div class="container has-text-centered hero-title safe-borders">
-        <img class="hero-logo" src="/public/assets/anor-logo.png" alt="{{env.websiteName}}" />
+        <img class="hero-logo" src="/public/assets/anor-logo.webp" alt="{{env.websiteName}}" />
     </div>
     <div class="container has-text-centered is-max-mobile safe-borders">
         <p>
@@ -89,7 +90,7 @@
                         <div class="column">
                             <div id="tcg-card-holder-${kind.cardID}" class="tcg-card-holder">
                                 <div id="tcg-card-${kind.cardID}" class="tcg-card tcg-card-presented tcg-card-presented-kinds"
-                                    style="background-image: url(https://itschotsch.github.io/tcg-maker/tcg-arena/images/public/${kind.cardID}.jpg);"
+                                    style="background-image: url(https://itschotsch.github.io/anor/export/dev/jpg/${kind.cardID}.jpg);"
                                     data-tilt data-tilt-reverse="true" data-tilt-glare="true" data-tilt-max-glare="0.5"
                                     data-tilt-startX="0" data-tilt-startY="-10" data-tilt-reset-to-start="true"
                                     onclick="openCard('${kind.cardID}')">
@@ -164,13 +165,13 @@
                 {{
                     env.characterCreationButtons.map((button) => {
                         return `
-                        <a class="button" href="${button.url}" target="${button.target}">
-                            <span class="icon">
-                                <img src="${button.icon}" alt="${button.text}" />
-                            </span>
-                            <span>${button.text}</span>
-                        </a>
-                    `;
+                            <a class="button" href="${button.url}" target="${button.target}">
+                                <span class="icon">
+                                    <img src="${button.icon}" alt="${button.text}" />
+                                </span>
+                                <span>${button.text}</span>
+                            </a>
+                        `;
                     }).join("");
                 }}
             </div>

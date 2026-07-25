@@ -1,0 +1,86 @@
+/* Linktree-style page. Same warm gold/cream palette as the home and
+   Starter Decks pages (see agent-assets/STYLE_GUIDE.md §4) — copy the
+   .page-* override pattern from tcg-home.css / tcg-starterdecks.css. */
+.page-share {
+    --bulma-title-color: #ffe1a1;
+    --bulma-subtitle-color: #ffe1a1;
+    --bulma-body-color: #ecdaccee;
+    color: #ecdaccee;
+}
+
+.share-logo {
+    display: block;
+    width: min(10rem, 40vw);
+    height: auto;
+    margin: 0 auto 3rem;
+}
+
+.share-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 40rem;
+    margin: 0 auto;
+}
+
+.share-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    border-radius: 999px;
+    border: 1px solid #ffe1a1;
+    overflow: hidden;
+    background-color: #070708;
+    text-decoration: none;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.share-link:hover {
+    transform: translateY(-0.15rem);
+    border-color: #ecdaccee;
+}
+
+.share-link-title {
+    position: relative;
+    z-index: 1;
+    padding-left: 2rem;
+    font-family: "Gold and After", serif;
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: #ffe1a1;
+    text-shadow: 0 0.075em 0 black;
+}
+
+.share-link-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 60%;
+    background-size: cover;
+    background-position: center;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 55%);
+    mask-image: linear-gradient(to right, transparent, black 55%);
+}
+
+/* Responsive behaviour for phones. */
+@media only screen and (max-width: 768px) {
+    .share-logo {
+        width: 7rem;
+        margin-bottom: 2rem;
+    }
+
+    .share-link {
+        height: 4.25rem;
+    }
+
+    .share-link-title {
+        padding-left: 1.5rem;
+        font-size: 1.15rem;
+    }
+
+    .share-link-image {
+        width: 65%;
+    }
+}

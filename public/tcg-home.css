@@ -1,0 +1,96 @@
+.hero-logo-heading {
+    margin: 0;
+}
+
+.hero-logo {
+    display: block;
+    width: min(26rem, 70vw);
+    height: auto;
+    margin: 0 auto;
+}
+
+/* .hero-title's default margin-bottom (5rem / 4rem mobile, see
+   tcg-website.css) was tuned for a title + subtitle pair; the home hero
+   now only holds the logo, so tighten the gap before the paragraph below. */
+.page-home .hero-title {
+    margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .page-home .hero-title {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Same warm gold/cream palette as the Starter Decks page (see
+   agent-assets/STYLE_GUIDE.md), applied to the whole home page so both
+   pages read as one piece. Bulma recomputes .title/.subtitle color from
+   its own HSL variables and body text color is resolved once on <body>,
+   so both need explicit, higher-specificity color rules, not just the
+   custom properties — copied from public/tcg-starterdecks.css. */
+.page-home {
+    --bulma-title-color: #ffe1a1;
+    --bulma-subtitle-color: #ffe1a1;
+    --bulma-body-color: #ecdaccee;
+    color: #ecdaccee;
+}
+
+.page-home .title,
+.page-home .subtitle {
+    color: #ffe1a1;
+}
+
+.page-home .button {
+    color: #ffe1a1;
+    border-color: #ffe1a1;
+}
+
+.starterdeck-teaser-fan {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: clamp(1rem, 4vw, 4rem);
+    margin-top: 4rem;
+}
+
+.starterdeck-teaser-pack {
+    flex: 0 0 auto;
+    width: clamp(8rem, 13vw, 13rem);
+}
+
+.starterdeck-teaser-pack img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 1rem 2rem rgba(0, 0, 0, 0.6));
+}
+
+.starterdeck-teaser-pack--left {
+    transform: rotate(-16deg);
+}
+
+.starterdeck-teaser-pack--center {
+    margin-top: 3.5rem;
+    transform: rotate(-6deg);
+}
+
+.starterdeck-teaser-pack--right {
+    transform: rotate(16deg);
+}
+
+/* Responsive behaviour for phones. */
+@media only screen and (max-width: 768px) {
+    .starterdeck-teaser-fan {
+        gap: 2.5vw;
+        margin-top: 2.5rem;
+    }
+
+    .starterdeck-teaser-pack {
+        width: 24vw;
+        max-width: 8rem;
+    }
+
+    .starterdeck-teaser-pack--center {
+        margin-top: 1.5rem;
+    }
+}

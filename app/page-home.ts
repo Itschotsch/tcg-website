@@ -16,7 +16,6 @@ export namespace Website {
                     406,
                     485
                 ],
-                "catchphrase": "Ein Sammelkartenspiel",
                 "summaryText": "Tauche ein in ein einzigartiges Sammelkartenspiel, das die unvergesslichsten Momente Deiner LARP-Erlebnisse zum Leben erweckt. Werde Teil einer der Community und gestalte die Welt des Spiels aktiv mit.",
                 "summaryButtons": [
                     {
@@ -32,6 +31,11 @@ export namespace Website {
                         "target": "_blank",
                     }
                 ],
+                "starterDecksTitle": "Starter Decks",
+                "starterDecksText": "Jedes Starter Deck ist ein eigenständiger Einstieg in Anor: vorab abgestimmt, sofort spielbereit und ideal, um ein Element und seine Spielweise kennenzulernen.",
+                "starterDecksButtonText": "Starter Decks Anzeigen",
+                "starterDecksButtonUrl": "/starter-decks",
+                "starterDecksButtonTarget": "_self",
                 "worldbuildingTitle": "Viele Welten,<br/>ein System",
                 "worldbuildingText": "Unser eigens entwickeltes Spielsystem wurde geschaffen, um unterschiedlichste Fantasy-Welten und -Charaktere nahtlos miteinander zu verbinden. Auch dein Charakter findet seinen Platz im Spiel: als individuelle Karte, basierend darauf, was ihn am stärksten prägt. Die Regeln sind leicht zugänglich – das Meistern fordert strategisches Geschick.",
                 "worldbuildingButtons": [

@@ -88,6 +88,11 @@ hr {
     display: block;
 }
 
+.hero-logo.small {
+    max-width: 10rem;
+    width: 50%;
+}
+
 h2.title {
     font-size: 3rem;
 
@@ -115,6 +120,10 @@ p {
     border: 1px solid var(--bulma-title-color);
     background-color: transparent;
     font-weight: bold;
+}
+
+.button.is-illustrated {
+    font-family: "Gold and After", serif;
 }
 
 .button:hover {

@@ -80,6 +80,14 @@ hr {
     margin-bottom: 5rem;
 }
 
+.hero-logo {
+    max-width: 20rem;
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
 h2.title {
     font-size: 3rem;
 

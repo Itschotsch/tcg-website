@@ -57,6 +57,34 @@
 </section>
 <hr />
 <section class="section">
+    <div class="container has-text-centered is-max-desktop safe-borders">
+        <h2 class="title">
+            {{env.starterDecksTitle}}
+        </h2>
+        <p class="is-max-mobile">
+            {{env.starterDecksText}}
+        </p>
+        <div class="buttons is-centered">
+            {{
+                env.starterDeckButtons.map((button) => {
+                return `
+                    <a class="button" href="${button.url}" target="${button.target}">
+                        <span class="icon">
+                            <img src="${button.icon}" alt="${button.text}" />
+                        </span>
+                        <span>${button.text}</span>
+                    </a>
+                `;
+                }).join("");
+            }}
+        </div>
+        <div class="foreground-flavour-image"
+            style="background-image: url(/public/assets/starterdecks.webp);">
+        </div>
+    </div>
+</section>
+<hr />
+<section class="section">
     <div class="background-flavour-image softextended fadeout-top-bottom transparent"
         style="background-image: url(/public/assets/worldbuilding-background.webp);">
     </div>

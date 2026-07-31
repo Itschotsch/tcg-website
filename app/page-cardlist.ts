@@ -30,7 +30,7 @@ export namespace Website {
                         return [];
                     }
                 })(),
-                "footerText": `© ${new Date().getFullYear()} Aetherlab`,
+                "footerText": `© ${new Date().getFullYear()} Verein Anor`,
                 "loadTemplate": Preprocessor.loadTemplate,
             });
             res.send(template);

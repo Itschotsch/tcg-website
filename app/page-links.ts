@@ -62,7 +62,7 @@ export namespace Website {
                         "target": "_blank"
                     }
                 ],
-                "footerText": `© ${new Date().getFullYear()} Verein Aetherlab`,
+                "footerText": `© ${new Date().getFullYear()} Verein Anor`,
                 "loadTemplate": Preprocessor.loadTemplate,
             });
             res.send(template);

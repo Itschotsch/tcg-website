@@ -1,4 +1,5 @@
 import { Express, Request, Response } from 'express';
+import * as https from 'https';
 
 
 export namespace Website {
@@ -20,10 +21,23 @@ export namespace Website {
             if (typeof origin === 'string') {
                 try {
                     const parsedOrigin = new URL(origin);
-                    if (parsedOrigin.hostname === 'tcg-arena.fr' || parsedOrigin.hostname.endsWith('.tcg-arena.fr')) {
+                    const hostname = parsedOrigin.hostname;
+
+                    // Allow production, local, and preview domains
+                    const isProduction = hostname === 'tcg-arena.fr' ||
+                        hostname.endsWith('.tcg-arena.fr') ||
+                        hostname === 'anor.cards' ||
+                        hostname.endsWith('.anor.cards');
+
+                    const isDevelopment = hostname === 'localhost' ||
+                        hostname === '127.0.0.1' ||
+                        hostname === 'tcg-website.vercel.app' ||
+                        hostname.endsWith('tcg-website.vercel.app');
+
+                    if (isProduction || isDevelopment) {
                         res.setHeader('Access-Control-Allow-Origin', origin);
                         res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-                        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+                        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
                         res.setHeader('Access-Control-Allow-Credentials', 'true');
                     }
                 } catch (e) {
@@ -42,19 +56,42 @@ export namespace Website {
 
         app.options('/tcg-arena', handleTCGArenaCORS);
         app.get('/tcg-arena', handleTCGArenaCORS, (req: Request, res: Response) => {
-            res.redirect(302, 'https://tcg-arena.fr/load/YW5vci5jYXJkcyUyRnRjZy1hcmVuYSUyRm1haW4uanNvbg==');
+            res.redirect(302, 'https://tcg-arena.fr/load/aHR0cHMlM0ElMkYlMkZhbm9yLmNhcmRzJTJGdGNnLWFyZW5hJTJGbWFpbi5qc29u');
         });
 
         app.options('/tcg-arena/main.json', handleTCGArenaCORS);
         app.get('/tcg-arena/main.json', handleTCGArenaCORS, (req: Request, res: Response) => {
-            res.redirect(302, 'https://itschotsch.github.io/anor/tcg-arena/main.json');
+            // It's stupid but simply redirecting does not work due to CORS. So we have to proxy the request.
+            const targetUrl = 'https://itschotsch.github.io/anor/tcg-arena/main.json';
+            https.get(targetUrl, (proxyRes) => {
+                if (proxyRes.headers['content-type']) {
+                    res.setHeader('Content-Type', proxyRes.headers['content-type']);
+                }
+                res.status(proxyRes.statusCode || 200);
+                proxyRes.pipe(res);
+            }).on('error', (err) => {
+                console.error("Error proxying main.json:", err);
+                res.redirect(302, targetUrl); // Fallback to redirect on error
+            });
         });
 
         // /tcg-arena/* -> https://itschotsch.github.io/anor/tcg-arena/*
         app.options('/tcg-arena/*', handleTCGArenaCORS);
         app.get('/tcg-arena/*', handleTCGArenaCORS, (req: Request, res: Response) => {
+            // It's stupid but simply redirecting does not work due to CORS. So we have to proxy the request.
             const rest = req.params[0];
-            res.redirect(302, 'https://itschotsch.github.io/anor/tcg-arena/' + rest);
+            const targetUrl = 'https://itschotsch.github.io/anor/tcg-arena/' + rest;
+
+            https.get(targetUrl, (proxyRes) => {
+                if (proxyRes.headers['content-type']) {
+                    res.setHeader('Content-Type', proxyRes.headers['content-type']);
+                }
+                res.status(proxyRes.statusCode || 200);
+                proxyRes.pipe(res);
+            }).on('error', (err) => {
+                console.error(`Error proxying ${rest}:`, err);
+                res.redirect(302, targetUrl); // Fallback to redirect on error
+            });
         });
     }
 

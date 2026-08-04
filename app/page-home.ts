@@ -28,7 +28,7 @@ export namespace Website {
                     {
                         "icon": "/public/assets/tcg-arena-logo.svg",
                         "text": "Online spielen",
-                        "url": "https://tcg-arena.fr/load/aHR0cHMlM0ElMkYlMkZpdHNjaG90c2NoLmdpdGh1Yi5pbyUyRnRjZy1tYWtlciUyRnRjZy1hcmVuYSUyRm1haW4uanNvbg",
+                        "url": "https://anor.cards/tcg-arena/",
                         "target": "_blank",
                     }
                 ],
@@ -81,7 +81,7 @@ export namespace Website {
                     {
                         "icon": "/public/assets/tcg-arena-logo.svg",
                         "text": "Online spielen",
-                        "url": "https://tcg-arena.fr/load/aHR0cHMlM0ElMkYlMkZpdHNjaG90c2NoLmdpdGh1Yi5pbyUyRnRjZy1tYWtlciUyRnRjZy1hcmVuYSUyRm1haW4uanNvbg",
+                        "url": "https://anor.cards/tcg-arena/",
                         "target": "_blank",
                     },
                     {

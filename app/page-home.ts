@@ -26,10 +26,10 @@ export namespace Website {
                         "target": "_blank",
                     },
                     {
-                        "icon": "/public/assets/tcg-arena-logo.svg",
-                        "text": "Online spielen",
-                        "url": "https://anor.cards/tcg-arena/",
-                        "target": "_blank",
+                        "icon": "/public/assets/anor-a.webp",
+                        "text": "Jetzt mitmachen",
+                        "url": "/mitmachen",
+                        "target": "_self",
                     }
                 ],
                 "starterDecksTitle": "Starterdecks",
@@ -105,33 +105,41 @@ export namespace Website {
                 "joinText": "Dieses Sammelkartenspiel entsteht aus der Community heraus – und Du kannst ein Teil davon sein. Ob mit Testspielen, Kartenentwürfen, Bildkreation oder einfach guten Ideen: Wir freuen uns über alle, die mithelfen wollen, das Spiel gemeinsam weiterzuentwickeln.",
                 "joinButtons": [
                     {
-                        "icon": "/public/assets/discord-logo.svg",
-                        "text": "Kontaktieren",
-                        "url": "https://discord.gg/BVQrSYF5jg",
-                        "target": "_blank",
+                        "icon": "/public/assets/anor-a.webp",
+                        "text": "Jetzt mitmachen",
+                        "url": "/mitmachen",
+                        "target": "_self",
                     },
                 ],
                 "faqTitle": "Meist gefragt",
                 "faqItems": [
                     {
                         "question": "Was ist Anor?",
-                        "answer": "Anor ist ein <a href=\"https://de.wikipedia.org/wiki/Sammelkartenspiel\" target=\"_blank\">Sammelkartenspiel</a>. Es spielt sich ähnlich und doch erstaunlich anders als andere bekannte Sammelkartenspiele. Dazu kommt: Inhaltlich erzählt es von Geschichten, Charakteren und Momenten aus den unterschiedlichsten <a href=\"https://de.wikipedia.org/wiki/Live_Action_Role_Playing\" target=\"_blank\">LARP</a>-Kampagnen und -Welten. Die Karten repräsentieren Dinge und Momente, die so im Spiel erlebt wurden."
+                        "answer": "Anor ist ein Sammelkartenspiel. Es spielt sich ähnlich und doch erstaunlich anders als andere bekannte Sammelkartenspiele. Dazu kommt: Inhaltlich erzählt es von Geschichten, Charakteren und Momenten aus den unterschiedlichsten LARP-Kampagnen und -Welten. Die Karten repräsentieren Dinge und Momente, die so im Spiel erlebt wurden."
                     },
                     {
                         "question": "Für wen ist Anor gedacht?",
                         "answer": "Anor ist etwas für alle, die gerne Sammelkartenspiele spielen oder sammeln. Inhaltlich richtet es sich natürlich an LARP-Spieler, die ihre Charaktere und Geschichten in einem Sammelkartenspiel verewigen möchten, aber uns ist es wichtig, dass Anor auch außerhalb des LARPs und von Nicht-LARPern genauso gespielt und genossen werden kann."
                     },
                     {
+                        "question": "Wie fange ich mit Anor an?",
+                        "answer": "Am einfachsten probierst Du Anor kostenlos <a href=\"https://anor.cards/tcg-arena/\" target=\"_blank\">online auf TCG-Arena</a> aus. Im <a href=\"https://w1a.notion.site/tcg-spielregeln\" target=\"_blank\">Regelwerk</a> findest Du alles, was Du zum Spielen wissen musst. Die Regeln sind leicht zugänglich, und bei Fragen hilft Dir die Community auf unserem <a href=\"https://discord.gg/BVQrSYF5jg\" target=\"_blank\">Discord-Server</a>."
+                    },
+                    {
                         "question": "Wie kann ich Anor spielen?",
-                        "answer": "Zusätzlich zum physischen Spiel kann Anor auch vollkommen kostenlos und ohne Anmeldung <a href=\"https://anor.cards/tcg-arena/\" target=\"_blank\">online gespielt werden</a>. Spielpartner finden sich zahlreich auf unserem <a href=\"https://discord.gg/BVQrSYF5jg\" target=\"_blank\">Anor-Discord-Server</a>."
+                        "answer": "Zusätzlich zum physischen Spiel kann Anor auch vollkommen kostenlos und ohne Anmeldung <a href=\"https://anor.cards/tcg-arena/\" target=\"_blank\">online gespielt werden</a>. Wie das funktioniert, zeigt die <a href=\"https://w1a.notion.site/tcg-arena-anleitung\" target=\"_blank\">TCG-Arena-Anleitung</a>, und alle Regeln findest Du im <a href=\"https://w1a.notion.site/tcg-spielregeln\" target=\"_blank\">Regelwerk</a>. Spielpartner finden sich zahlreich auf unserem <a href=\"https://discord.gg/BVQrSYF5jg\" target=\"_blank\">Anor-Discord-Server</a>."
                     },
                     {
                         "question": "Kostet das Spiel etwas?",
-                        "answer": "Anor ist ein Freizeitprojekt. Die Online-Version ist vollkommen kostenlos verfügbar. Ebenso die Karten, die an größeren Cons IT erspielt werden können. Die Kosten der gedruckten Produkte decken die Druck- und Produktionskosten sowie ebendiese Querfinanzierung. Das Projekt lebt also vollkommen von der Gemeinschaft."
+                        "answer": "Anor ist ein Freizeitprojekt. Die Online-Version ist vollkommen kostenlos verfügbar. Ebenso die Karten, die an größeren Cons IT erspielt werden können. Die Einnahmen aus den gedruckten Produkten decken die Druck- und Produktionskosten und finanzieren die IT verteilten Karten mit. Das Projekt lebt also vollkommen von der Gemeinschaft."
                     },
                     {
                         "question": "Wann ist Anor erhältlich?",
-                        "answer": "<a href=\"https://w1a.notion.site/vorbestellung-anor-starter-decks\" target=\"_blank\">Die ersten Starterdecks sind schon verfügbar!</a> Zusätzlich bringen unzählige Spielmacher auf den großen Cons schon länger Karten ins Spiel, die IT erspielt werden können."
+                        "answer": "<a href=\"https://w1a.notion.site/vorbestellung-anor-starter-decks\" target=\"_blank\">Die ersten Starterdecks sind schon verfügbar!</a> Du bestellst sie über das Formular vor, holst sie an einem Event wie dem Drachenfest oder dem ConQuest of Mythodea ab und bezahlst dort bar. Zusätzlich bringen unzählige Spielmacher auf den großen Cons schon länger Karten ins Spiel, die IT erspielt werden können."
+                    },
+                    {
+                        "question": "Wie bekomme ich Karten im LARP?",
+                        "answer": "Im LARP kannst Du Loot Packs mit je zwei zufälligen Karten erspielen. Händler, Questgeber und Spielmacher bringen sie IT ins Spiel, etwa als Belohnung für gutes Rollenspiel, für erfüllte Aufgaben oder als Beute. OT werden Loot Packs nicht verkauft."
                     },
                     {
                         "question": "Kann ich eigene Charaktere ins Spiel bringen?",
@@ -139,7 +147,7 @@ export namespace Website {
                     },
                     {
                         "question": "Was bedeutet IT sammelbar und OT erhältlich?",
-                        "answer": "<i><a href=\"https://de.wikipedia.org/wiki/Live_Action_Role_Playing#In-Time_und_Out-Time\">IT</a> sammelbar</i> bedeutet, dass die Karten im LARP-Spiel gesammelt und gehandelt werden können. Unzählige freiwillige Spielmacher bringen Karten ins Spiel, etwa als Belohnung für Aufgaben oder als Beute im Kampf. Die im Spiel sammelbaren Karten sind speziell markiert, aber natürlich mit den anderen Karten kompatibel. <i><a href=\"https://de.wikipedia.org/wiki/Live_Action_Role_Playing#In-Time_und_Out-Time\">OT</a> erhältlich</i> bedeutet, dass Karten, <a href=\"https://w1a.notion.site/vorbestellung-anor-starter-decks\">wie etwa die Starterdecks</a>, auch außerhalb des LARPs als physische Produkte angeboten werden."
+                        "answer": "<i>IT sammelbar</i> bedeutet, dass die Karten im LARP-Spiel gesammelt und gehandelt werden können. Unzählige freiwillige Spielmacher bringen Karten ins Spiel, etwa als Belohnung für Aufgaben oder als Beute im Kampf. Die im Spiel sammelbaren Karten sind speziell markiert, aber natürlich mit den anderen Karten kompatibel. <i>OT erhältlich</i> bedeutet, dass Karten, <a href=\"https://w1a.notion.site/vorbestellung-anor-starter-decks\" target=\"_blank\">wie etwa die Starterdecks</a>, auch außerhalb des LARPs als physische Produkte angeboten werden."
                     },
                     {
                         "question": "Wie entstehen Bilder und andere Inhalte?",
@@ -151,7 +159,15 @@ export namespace Website {
                     },
                     {
                         "question": "Wie kann ich mich am Projekt beteiligen?",
-                        "answer": "Das Projekt lebt von der Gemeinschaft. So kannst Du <a href=\"https://w1a.notion.site/1db95bba56ba8052b176f05bcde11d31\" target=\"_blank\">Deinen Charakter einreichen</a>, das <a href=\"https://anor.cards/tcg-arena/\" target=\"_blank\">Spiel online testen</a> und uns <a href=\"https://w1a.notion.site/1db95bba56ba8052b176f05bcde11d31\" target=\"_blank\">Rückmeldungen geben</a>, <a href=\"https://w1a.notion.site/vorbestellung-anor-starter-decks\" target=\"_blank\">ein Starterdeck erwerben</a>, oder das Projekt anderweitig unterstützen. Am besten trittst Du dazu unserem <a href=\"https://discord.gg/BVQrSYF5jg\" target=\"_blank\">Discord-Server</a> bei."
+                        "answer": "Anor lebt von der Gemeinschaft. Ob Playtesting, Artwork, Community Building oder eine ganz eigene Idee: Auf unserer <a href=\"/mitmachen\">Mitmachen-Seite</a> erfährst Du, wie Du dabei sein kannst."
+                    },
+                    {
+                        "question": "Muss ich etwas Bestimmtes können, um mitzumachen?",
+                        "answer": "Nein. Neugier und Lust, etwas beizutragen, genügen, und auch wer etwas erst lernt, ist willkommen. Du möchtest erst einmal ohne Aufgabe dabei sein? Dann komm einfach auf unseren <a href=\"https://discord.gg/BVQrSYF5jg\" target=\"_blank\">Discord-Server</a>."
+                    },
+                    {
+                        "question": "Wer steht hinter Anor?",
+                        "answer": "Hinter Anor steht der Verein Anor, ein gemeinnütziger Schweizer Verein. Er verfolgt keine Erwerbszwecke: Überschüsse fließen ausschließlich in die Vereinszwecke."
                     }
                 ],
                 "footerText": `© ${new Date().getFullYear()} Verein Anor ✦ Stand: 7. August 2026`,

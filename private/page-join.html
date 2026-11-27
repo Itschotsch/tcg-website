@@ -1,0 +1,118 @@
+<section class="section">
+    <div class="background-flavour-image fadeout-bottom"
+        style="background-image: url(/public/assets/hero-background.webp); background-position: center bottom;"></div>
+    <div class="container has-text-centered hero-title safe-borders">
+        <a href="/">
+            <img class="hero-logo small" src="/public/assets/anor-logo.webp" alt="{{env.websiteName}}" />
+        </a>
+    </div>
+    <div class="container has-text-centered is-max-desktop safe-borders">
+        <h2 class="title">
+            {{env.introTitle}}
+        </h2>
+        <p class="is-max-mobile">
+            {{env.introText}}
+        </p>
+        <div class="buttons is-centered">
+            {{
+                env.introButtons.map((button) => {
+                    return `
+                        <a class="button" href="${button.url}" target="${button.target}">
+                            <span class="icon">
+                                <img src="${button.icon}" alt="${button.text}" />
+                            </span>
+                            <span>${button.text}</span>
+                        </a>
+                    `;
+                }).join("");
+            }}
+        </div>
+    </div>
+</section>
+<hr />
+<section class="section">
+    <div class="container is-max-desktop has-text-centered safe-borders">
+        <h2 class="title">
+            {{env.waysTitle}}
+        </h2>
+        <div class="columns is-desktop is-8">
+            {{
+                env.ways.map((way) => {
+                    return `
+                        <div class="column">
+                            <figure class="image is-16by9 mb-4">
+                                <img src="${way.image}" alt="${way.title}" style="object-fit: ${way.imageFit};" />
+                            </figure>
+                            <h2 class="subtitle">${way.title}</h2>
+                            <p>${way.description}</p>
+                        </div>
+                    `;
+                }).join("");
+            }}
+        </div>
+    </div>
+</section>
+<hr />
+<section class="section">
+    <div class="background-flavour-image softextended fadeout-top-bottom transparent"
+        style="background-image: url(/public/assets/play-online-background.webp);">
+    </div>
+    <div class="container has-text-centered is-max-desktop safe-borders">
+        <h2 class="title">
+            {{env.discordTitle}}
+        </h2>
+        <p class="is-max-mobile">
+            {{env.discordText}}
+        </p>
+        <div class="buttons is-centered">
+            {{
+                env.discordButtons.map((button) => {
+                    return `
+                        <a class="button" href="${button.url}" target="${button.target}">
+                            <span class="icon">
+                                <img src="${button.icon}" alt="${button.text}" />
+                            </span>
+                            <span>${button.text}</span>
+                        </a>
+                    `;
+                }).join("");
+            }}
+        </div>
+    </div>
+</section>
+<hr />
+<section class="section">
+    <div class="container has-text-centered is-max-desktop safe-borders">
+        <h2 class="title">
+            {{env.outroTitle}}
+        </h2>
+        <p class="is-max-mobile">
+            {{env.outroText}}
+        </p>
+        <div class="buttons is-centered">
+            {{
+                env.outroButtons.map((button) => {
+                    return `
+                        <a class="button" href="${button.url}" target="${button.target}">
+                            <span class="icon">
+                                <img src="${button.icon}" alt="${button.text}" />
+                            </span>
+                            <span>${button.text}</span>
+                        </a>
+                    `;
+                }).join("");
+            }}
+        </div>
+    </div>
+</section>
+<hr />
+<footer class="section">
+    <div class="background-flavour-image extended-up fadeout-top"
+        style="background-image: url(/public/assets/footer-background.webp); background-position: center bottom;">
+    </div>
+    <div class="content has-text-centered">
+        <p>
+            {{env.footerText}}
+        </p>
+    </div>
+</footer>

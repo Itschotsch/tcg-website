@@ -6,6 +6,7 @@ import { Website as PageHome } from './page-home';
 import { Website as PageCardlist } from './page-cardlist';
 import { Website as Redirects } from './redirects';
 import { Website as PageLinks } from './page-links';
+import { Website as PageJoin } from './page-join';
 
 Preprocessor.initialise();
 
@@ -18,6 +19,7 @@ PageHome.register(app);
 PageCardlist.register(app);
 Redirects.register(app);
 PageLinks.register(app);
+PageJoin.register(app);
 
 // For local development
 if (process.env.NODE_ENV !== 'production') {
